@@ -1,203 +1,156 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<base href="/-HP-/">
-<title>燕カフェ｜サンプルHP</title>
-<meta property="og:title" content="燕カフェ｜サンプルHP" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet" />
-<style>
-  html, body { margin: 0; padding: 0; background: #F6F1E7; }
-  body { font-family: 'Zen Kaku Gothic New', 'Hiragino Kaku Gothic ProN', sans-serif; color: #3A322A; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-  img { display: block; max-width: 100%; }
-  a[style-hover] {}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>cafe kokope｜サンプルHP</title>
+  <meta property="og:title" content="cafe kokope｜サンプルHP">
+  <meta property="og:description" content="鎌倉・扇ガ谷にある落ち着いた雰囲気のカフェ。散策の途中に、コーヒーや軽食、スイーツをゆっくり楽しめます。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: #f6f1e8; color: #3a332c; }
+    body { font-family: "Zen Kaku Gothic New", -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.9; letter-spacing: 0.02em; }
+    img { display: block; width: 100%; }
+    a { color: inherit; }
+    .wrap { max-width: 640px; margin: 0 auto; padding: 0 24px; }
+    .hero { position: relative; min-height: 520px; height: 72vh; max-height: 680px; overflow: hidden; }
+    .hero img { height: 100%; object-fit: cover; }
+    .shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(58,51,44,0.10) 0%, rgba(58,51,44,0.02) 44%, rgba(58,51,44,0.62) 100%); }
+    .hero-copy { position: absolute; left: 0; right: 0; bottom: 0; max-width: 640px; margin: 0 auto; padding: 28px 24px 38px; color: #fbf8f2; }
+    .eyebrow { margin: 0 0 8px; font-size: 12px; letter-spacing: 0.26em; color: #b88a5a; font-weight: 700; }
+    .hero-copy .eyebrow { color: #fbf8f2; text-transform: uppercase; }
+    h1, h2, .brand { font-family: "Shippori Mincho", serif; font-weight: 600; letter-spacing: 0.04em; }
+    h1 { margin: 0 0 14px; font-size: clamp(28px, 7vw, 40px); line-height: 1.58; }
+    h2 { margin: 0 0 24px; font-size: clamp(22px, 5.8vw, 29px); line-height: 1.7; }
+    p { margin: 0; }
+    section { padding: 56px 0 8px; }
+    .brand { margin: 0 0 16px; text-align: center; font-size: 20px; letter-spacing: 0.14em; }
+    .buttons { display: flex; flex-direction: column; gap: 10px; }
+    .button { display: flex; align-items: center; justify-content: center; min-height: 52px; padding: 12px 20px; border-radius: 999px; text-decoration: none; font-size: 15px; font-weight: 700; letter-spacing: 0.06em; }
+    .primary { background: #b88a5a; color: #fbf8f2; }
+    .secondary { border: 1.5px solid #c8bba6; color: #3a332c; background: transparent; }
+    .dark .secondary { border-color: rgba(251,248,242,0.42); color: #fbf8f2; }
+    .card-stack { display: flex; flex-direction: column; gap: 16px; }
+    .card { background: #fdfbf7; border-radius: 14px; padding: 22px 20px; }
+    .card h3 { margin: 0 0 6px; font-family: "Shippori Mincho", serif; font-size: 17px; line-height: 1.7; }
+    .muted { color: #5c5347; font-size: 14px; }
+    .gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    figure { margin: 0; }
+    figcaption { margin-top: 8px; color: #5c5347; font-size: 13px; line-height: 1.65; }
+    .wide { grid-column: 1 / -1; }
+    .photo-wide { aspect-ratio: 16 / 9; object-fit: cover; border-radius: 14px; }
+    .photo-square { aspect-ratio: 1 / 1; object-fit: cover; border-radius: 14px; }
+    .photo-portrait { aspect-ratio: 3 / 4; object-fit: cover; border-radius: 14px; }
+    .info { background: #fdfbf7; border-radius: 14px; padding: 8px 20px; margin-bottom: 16px; }
+    .row { display: flex; gap: 14px; padding: 14px 0; border-bottom: 1px solid #ede5d6; }
+    .row:last-child { border-bottom: 0; }
+    .label { flex: none; width: 5em; color: #8a7e6e; font-size: 13px; }
+    iframe { width: 100%; height: 280px; border: 0; border-radius: 14px; display: block; }
+    .dark { margin-top: 64px; background: #3a332c; color: #fbf8f2; text-align: center; }
+    .dark-inner { max-width: 640px; margin: 0 auto; padding: 56px 24px 48px; }
+    footer { max-width: 640px; margin: 0 auto; padding: 0 24px 32px; color: rgba(251,248,242,0.58); font-size: 11px; line-height: 1.8; }
+    @media (min-width: 760px) {
+      body { background: #eee5d6; }
+      main { max-width: 760px; margin: 0 auto; background: #f6f1e8; min-height: 100vh; box-shadow: 0 24px 70px rgba(58,51,44,0.12); }
+    }
+  </style>
 </head>
 <body>
-<div style="background: #F6F1E7; color: #3A322A; line-height: 1.9; overflow-x: hidden">
-
-  <!-- 1. ファーストビュー -->
-  <section data-screen-label="ファーストビュー" style="padding: 68px 24px 0; text-align: center">
-    <div style="max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 20px">
-      <p style="margin: 0; font-size: 12px; letter-spacing: 0.28em; color: #7A8B6F; font-weight: 500">鎌倉・小町　古民家カフェ</p>
-      <p style="margin: 0; font-family: 'Zen Old Mincho', serif; font-size: 22px; letter-spacing: 0.42em; text-indent: 0.42em">燕カフェ</p>
-      <h1 style="margin: 8px 0 0; font-family: 'Zen Old Mincho', serif; font-weight: 500; font-size: clamp(30px, 7.4vw, 46px); line-height: 1.55; letter-spacing: 0.06em; text-wrap: balance">鎌倉の路地裏、<br />古民家でひと休み。</h1>
-      <p style="margin: 0; max-width: 34em; font-size: 15px; color: #6E6357; text-wrap: pretty">木のぬくもりに包まれた店内で、体にやさしい薬膳の食事とお茶を。散策の途中に、静かなひとときをどうぞ。</p>
-      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 10px; width: 100%">
-        <a href="https://www.instagram.com/" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 12px 34px; background: #3A322A; color: #F6F1E7; text-decoration: none; border-radius: 999px; font-size: 15px; font-weight: 500; letter-spacing: 0.08em" style-hover="background: #55483C">Instagramで予約・最新情報</a>
-        <a href="tel:080-3597-7737" style="display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 12px 34px; background: transparent; color: #3A322A; text-decoration: none; border-radius: 999px; font-size: 15px; font-weight: 500; letter-spacing: 0.08em; border: 1px solid #B4A895" style-hover="background: #EFE7D8">電話で問い合わせる</a>
+<main>
+  <header>
+    <div class="hero">
+      <img src="https://elevate2026.github.io/-HP-/cafe-in-the-woods-kamakura/images/interior.jpg" alt="cafe kokope 店内イメージ">
+      <div class="shade"></div>
+      <div class="hero-copy">
+        <p class="eyebrow">Kamakura · Ogigayatsu</p>
+        <h1>鎌倉の静かな通りで、<br>ほっとひと息。</h1>
+        <p>扇ガ谷にある、落ち着いた雰囲気のカフェ。<br>散策の途中に、コーヒーや軽食、スイーツを<br>ゆっくり楽しめます。</p>
       </div>
     </div>
-    <div style="max-width: 1080px; margin: 48px auto 0">
-      <img src="img/interior-main.jpg" alt="木のぬくもりを感じる古民家の店内" style="width: 100%; aspect-ratio: 1084 / 578; object-fit: cover; border-radius: 6px 6px 0 0" />
+    <div class="wrap" style="padding-top: 20px;">
+      <p class="brand">cafe kokope</p>
+      <div class="buttons">
+        <a class="button primary" href="https://www.instagram.com/kokope_0608?utm_source=ig_web_button_share_sheet&amp;igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener">Instagramで営業状況を見る</a>
+        <a class="button secondary" href="https://www.google.com/maps/search/?api=1&amp;query=cafe+kokope+%E9%8E%8C%E5%80%89%E5%B8%82%E6%89%87%E3%82%AC%E8%B0%B7" target="_blank" rel="noopener">Googleマップで場所を確認する</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="wrap">
+    <p class="eyebrow">REASONS</p>
+    <h2>静かに過ごせる、<br>鎌倉のカフェ時間</h2>
+    <div class="card-stack">
+      <div class="card"><h3>鎌倉の喧騒から少し離れた、落ち着いた時間</h3><p class="muted">鎌倉駅から歩いて行ける場所にありながら、駅前のにぎわいから少し離れた扇ガ谷エリア。散策の途中に、静かにひと息つきたい方に心地よいカフェです。</p></div>
+      <div class="card"><h3>ひとりでも過ごしやすい、ゆったりとした店内</h3><p class="muted">窓際のカウンター席やテーブル席があり、ひとりでの読書や休憩にも、友人とのカフェ時間にも利用しやすい空間です。</p></div>
+      <div class="card"><h3>軽食からスイーツまで楽しめるメニュー</h3><p class="muted">キッシュプレートやトースト、ケーキ、季節感のあるドリンクなど、散策中の軽いランチやカフェ休憩に合うメニューを楽しめます。</p></div>
     </div>
   </section>
 
-  <!-- 2. 選ばれる理由 -->
-  <section data-screen-label="選ばれる理由" style="background: #FFFDF8; padding: 76px 24px">
-    <div style="max-width: 960px; margin: 0 auto">
-      <p style="margin: 0 0 14px; font-size: 12px; letter-spacing: 0.28em; color: #7A8B6F; font-weight: 500; text-align: center">選ばれる理由</p>
-      <h2 style="margin: 0 0 44px; font-family: 'Zen Old Mincho', serif; font-weight: 500; font-size: clamp(24px, 5.6vw, 34px); line-height: 1.6; letter-spacing: 0.06em; text-align: center">この場所で過ごす、<br />特別なひととき</h2>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px">
-        <div style="background: #F6F1E7; border-radius: 8px; padding: 30px 26px; display: flex; flex-direction: column; gap: 12px">
-          <p style="margin: 0; font-family: 'Zen Old Mincho', serif; font-size: 14px; letter-spacing: 0.2em; color: #7A8B6F">〇一</p>
-          <h3 style="margin: 0; font-family: 'Zen Old Mincho', serif; font-weight: 500; font-size: 19px; letter-spacing: 0.05em">趣のある古民家の空間</h3>
-          <p style="margin: 0; font-size: 14px; color: #6E6357; text-wrap: pretty">古い一軒家を活かした店内で、木のぬくもりやアンティークの家具に囲まれながら、ゆったりとした時間を過ごせます。</p>
-        </div>
-        <div style="background: #F6F1E7; border-radius: 8px; padding: 30px 26px; display: flex; flex-direction: column; gap: 12px">
-          <p style="margin: 0; font-family: 'Zen Old Mincho', serif; font-size: 14px; letter-spacing: 0.2em; color: #7A8B6F">〇二</p>
-          <h3 style="margin: 0; font-family: 'Zen Old Mincho', serif; font-weight: 500; font-size: 19px; letter-spacing: 0.05em">体をいたわる食事とお茶</h3>
-          <p style="margin: 0; font-size: 14px; color: #6E6357; text-wrap: pretty">薬膳を取り入れたお食事や、季節を感じる中国茶など、体にやさしいメニューをそろえています。</p>
-        </div>
-        <div style="background: #F6F1E7; border-radius: 8px; padding: 30px 26px; display: flex; flex-direction: column; gap: 12px">
-          <p style="margin: 0; font-family: 'Zen Old Mincho', serif; font-size: 14px; letter-spacing: 0.2em; color: #7A8B6F">〇三</p>
-          <h3 style="margin: 0; font-family: 'Zen Old Mincho', serif; font-weight: 500; font-size: 19px; letter-spacing: 0.05em">喧騒を離れた隠れ家の立地</h3>
-          <p style="margin: 0; font-size: 14px; color: #6E6357; text-wrap: pretty">にぎやかな通りから一歩入った静かな場所にあり、散策の合間にほっと落ち着けるひとときを過ごせます。</p>
-        </div>
-      </div>
+  <section class="wrap">
+    <p class="eyebrow">MENU</p>
+    <h2>散策の合間に楽しむ、<br>軽食とドリンク</h2>
+    <p class="muted" style="margin-bottom: 24px;">コーヒーやラテ、季節感のあるドリンクのほか、キッシュプレート、トースト、ケーキなどをご用意しています。軽めのランチや、午後のカフェ休憩におすすめです。</p>
+    <div class="gallery">
+      <figure class="wide"><img class="photo-wide" src="https://elevate2026.github.io/-HP-/cafe-in-the-woods-kamakura/images/quiche.jpg" alt="キッシュプレート"><figcaption>キッシュやトーストを添えた、軽めのランチプレート</figcaption></figure>
+      <figure><img class="photo-square" src="https://elevate2026.github.io/-HP-/cafe-in-the-woods-kamakura/images/coffee-bread.jpg" alt="カフェ休憩に合うケーキ類"><figcaption>カフェ休憩に合うケーキ類</figcaption></figure>
+      <figure><img class="photo-square" src="https://elevate2026.github.io/-HP-/cafe-in-the-woods-kamakura/images/coffee-yellow.jpg" alt="ラテやコーヒー"><figcaption>ラテやコーヒーなどのドリンク</figcaption></figure>
+    </div>
+    <p style="margin-top: 16px; color: #8a7e6e; font-size: 12px;">※ メニュー内容は時期により変わることがあります。</p>
+  </section>
+
+  <section class="wrap">
+    <p class="eyebrow">FOR FIRST VISIT</p>
+    <h2>ひとりでも、友人とも、<br>気軽に立ち寄れる場所</h2>
+    <div class="info">
+      <div class="row"><span class="label">お席</span><p class="muted">カウンター席とテーブル席があり、おひとりでも少人数でも利用しやすい店内です。</p></div>
+      <div class="row"><span class="label">ご注文</span><p class="muted">カウンターでの先払い形式です。初めての方も、席に迷わずご利用いただけます。</p></div>
+      <div class="row"><span class="label">アクセス</span><p class="muted">鎌倉駅西口から徒歩7分。海蔵寺方面への散策の行き帰りにも立ち寄りやすい場所です。</p></div>
+      <div class="row"><span class="label">営業確認</span><p class="muted">定休日は火曜・水曜です。臨時休業はInstagramのストーリー投稿でお知らせしていますので、来店前にご確認ください。</p></div>
     </div>
   </section>
 
-  <!-- 3. お食事とお茶 -->
-  <section data-screen-label="お食事とお茶" style="padding: 76px 24px">
-    <div style="max-width: 960px; margin: 0 auto">
-      <p style="margin: 0 0 14px; font-size: 12px; letter-spacing: 0.28em; color: #7A8B6F; font-weight: 500; text-align: center">お食事とお茶</p>
-      <h2 style="margin: 0 0 44px; font-family: 'Zen Old Mincho', serif; font-weight: 500; font-size: clamp(24px, 5.6vw, 34px); line-height: 1.6; letter-spacing: 0.06em; text-align: center">体にやさしい、<br />薬膳のお食事とお茶</h2>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px; align-items: center">
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px">
-          <img src="img/meal-tray.jpg" alt="小鉢を添えたお食事のセット" style="width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 6px" />
-          <img src="img/tea-cup.jpg" alt="器で味わうお茶" style="width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 6px; margin-top: 24px" />
-        </div>
-        <div style="display: flex; flex-direction: column; gap: 22px">
-          <div style="border-bottom: 1px solid #E2D8C6; padding-bottom: 20px">
-            <h3 style="margin: 0 0 6px; font-family: 'Zen Old Mincho', serif; font-weight: 500; font-size: 18px; letter-spacing: 0.05em">薬膳のお食事</h3>
-            <p style="margin: 0; font-size: 14px; color: #6E6357; text-wrap: pretty">スパイスや薬膳を取り入れた、日替わりのお食事。小鉢を添えたセットで、ひと皿ずつゆっくりとお楽しみください。</p>
-          </div>
-          <div style="border-bottom: 1px solid #E2D8C6; padding-bottom: 20px">
-            <h3 style="margin: 0 0 6px; font-family: 'Zen Old Mincho', serif; font-weight: 500; font-size: 18px; letter-spacing: 0.05em">季節のお茶</h3>
-            <p style="margin: 0; font-size: 14px; color: #6E6357; text-wrap: pretty">中国茶や薬膳茶をポットでご用意。温かいまま、時間をかけて味わえます。</p>
-          </div>
-          <div style="border-bottom: 1px solid #E2D8C6; padding-bottom: 20px">
-            <h3 style="margin: 0 0 6px; font-family: 'Zen Old Mincho', serif; font-weight: 500; font-size: 18px; letter-spacing: 0.05em">甘味・デザート</h3>
-            <p style="margin: 0; font-size: 14px; color: #6E6357; text-wrap: pretty">杏仁豆腐をはじめ、食後にうれしいやさしい甘さの一品をご用意しています。</p>
-          </div>
-          
-            <p style="margin: 0; font-size: 13px; color: #8A7E70">ご予算の目安：おひとり ¥1,000〜2,000<br />※メニュー・価格は季節により変わることがあります。</p>
-          
-        </div>
-      </div>
+  <section class="wrap">
+    <p class="eyebrow">ATMOSPHERE</p>
+    <h2>窓辺で過ごす、<br>やわらかなカフェ時間</h2>
+    <p class="muted" style="margin-bottom: 24px;">明るくすっきりとした店内で、鎌倉散策の余韻を感じながらゆっくり過ごせます。窓際の席でひと息ついたり、軽食とドリンクを楽しんだり、日常から少し離れた時間をお過ごしください。</p>
+    <div class="gallery">
+      <img class="photo-wide wide" src="https://elevate2026.github.io/-HP-/cafe-in-the-woods-kamakura/images/hero.jpg" alt="窓際の席">
+      <img class="photo-portrait" src="https://elevate2026.github.io/-HP-/cafe-in-the-woods-kamakura/images/garden-steps.jpg" alt="入口付近の様子">
+      <img class="photo-portrait" src="https://elevate2026.github.io/-HP-/cafe-in-the-woods-kamakura/images/interior.jpg" alt="店内の席まわり">
     </div>
   </section>
 
-  <!-- 4. 初めての方へ -->
-  <section data-screen-label="初めての方へ" style="background: #FFFDF8; padding: 76px 24px">
-    <div style="max-width: 960px; margin: 0 auto">
-      <p style="margin: 0 0 14px; font-size: 12px; letter-spacing: 0.28em; color: #7A8B6F; font-weight: 500; text-align: center">初めての方へ</p>
-      <h2 style="margin: 0 0 16px; font-family: 'Zen Old Mincho', serif; font-weight: 500; font-size: clamp(24px, 5.6vw, 34px); line-height: 1.6; letter-spacing: 0.06em; text-align: center">安心してお越しいただくために</h2>
-      <p style="margin: 0 auto 44px; max-width: 36em; font-size: 14px; color: #6E6357; text-align: center; text-wrap: pretty">初めての方が迷いやすいポイントを、あらかじめご案内します。</p>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px">
-        <div style="border: 1px solid #E2D8C6; border-radius: 8px; padding: 26px 24px; background: #FFFDF8">
-          <h3 style="margin: 0 0 8px; font-family: 'Zen Old Mincho', serif; font-weight: 500; font-size: 17px; letter-spacing: 0.05em">入口について</h3>
-          <p style="margin: 0; font-size: 14px; color: #6E6357; text-wrap: pretty">住宅街の奥にある、落ち着いた佇まいの一軒家です。門にかかる小さな看板を目印にお越しください。</p>
-        </div>
-        <div style="border: 1px solid #E2D8C6; border-radius: 8px; padding: 26px 24px; background: #FFFDF8">
-          <h3 style="margin: 0 0 8px; font-family: 'Zen Old Mincho', serif; font-weight: 500; font-size: 17px; letter-spacing: 0.05em">ご予約について</h3>
-          <p style="margin: 0; font-size: 14px; color: #6E6357; text-wrap: pretty">席数に限りがあり、お食事は売り切れ次第終了となる場合があります。ゆっくりお食事をご希望の方は、事前のご予約がおすすめです。</p>
-        </div>
-        <div style="border: 1px solid #E2D8C6; border-radius: 8px; padding: 26px 24px; background: #FFFDF8">
-          <h3 style="margin: 0 0 8px; font-family: 'Zen Old Mincho', serif; font-weight: 500; font-size: 17px; letter-spacing: 0.05em">店内の過ごし方</h3>
-          <p style="margin: 0; font-size: 14px; color: #6E6357; text-wrap: pretty">靴を脱いでお上がりいただくスタイルです。テーブル席のほか、ちゃぶ台を囲むお座敷席もございます。</p>
-        </div>
-        <div style="border: 1px solid #E2D8C6; border-radius: 8px; padding: 26px 24px; background: #FFFDF8">
-          <h3 style="margin: 0 0 8px; font-family: 'Zen Old Mincho', serif; font-weight: 500; font-size: 17px; letter-spacing: 0.05em">お支払いについて</h3>
-          <p style="margin: 0; font-size: 14px; color: #6E6357; text-wrap: pretty">お支払いは現金のみのお取り扱いです。あらかじめご了承ください。</p>
-        </div>
-      </div>
+  <section class="wrap">
+    <p class="eyebrow">ACCESS</p>
+    <h2>鎌倉駅西口から<br>徒歩7分</h2>
+    <div class="info">
+      <div class="row"><span class="label">店名</span><span>cafe kokope</span></div>
+      <div class="row"><span class="label">業種</span><span>カフェ・喫茶店</span></div>
+      <div class="row"><span class="label">住所</span><span>神奈川県鎌倉市扇ガ谷1-9-14</span></div>
+      <div class="row"><span class="label">営業時間</span><span>10:30〜17:30</span></div>
+      <div class="row"><span class="label">定休日</span><span>火曜・水曜（臨時休業はInstagramでお知らせ）</span></div>
+      <div class="row"><span class="label">電話</span><a href="tel:0467-33-5963">0467-33-5963</a></div>
+      <div class="row"><span class="label">ご利用</span><span>イートイン・テイクアウト対応</span></div>
     </div>
+    <iframe src="https://maps.google.com/maps?q=%E7%A5%9E%E5%A5%88%E5%B7%9D%E7%9C%8C%E9%8E%8C%E5%80%89%E5%B8%82%E6%89%87%E3%82%AC%E8%B0%B71-9-14&amp;z=16&amp;output=embed" title="Googleマップ" loading="lazy"></iframe>
+    <a class="button secondary" style="margin-top: 14px;" href="https://www.google.com/maps/search/?api=1&amp;query=%E7%A5%9E%E5%A5%88%E5%B7%9D%E7%9C%8C%E9%8E%8C%E5%80%89%E5%B8%82%E6%89%87%E3%82%AC%E8%B0%B71-9-14" target="_blank" rel="noopener">Googleマップで見る</a>
   </section>
 
-  <!-- 5. 店舗の雰囲気 -->
-  <section data-screen-label="店舗の雰囲気" style="padding: 76px 24px">
-    <div style="max-width: 960px; margin: 0 auto">
-      <p style="margin: 0 0 14px; font-size: 12px; letter-spacing: 0.28em; color: #7A8B6F; font-weight: 500; text-align: center">店舗の雰囲気</p>
-      <h2 style="margin: 0 0 16px; font-family: 'Zen Old Mincho', serif; font-weight: 500; font-size: clamp(24px, 5.6vw, 34px); line-height: 1.6; letter-spacing: 0.06em; text-align: center">時間がゆっくり流れる、<br />古民家の一室で</h2>
-      <p style="margin: 0 auto 40px; max-width: 36em; font-size: 14px; color: #6E6357; text-align: center; text-wrap: pretty">窓から差し込むやわらかな光を感じながら、お茶や食事をゆっくりと。まわりのしつらえを眺めているだけでも、心がほどけていくような時間が流れます。</p>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px">
-        <img src="img/tatami-room.jpg" alt="ちゃぶ台を囲むお座敷席" style="grid-column: 1 / -1; width: 100%; aspect-ratio: 16 / 8; object-fit: cover; border-radius: 6px" />
-        <img src="img/dried-flowers.jpg" alt="店内を彩るドライフラワー" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 6px" />
-        <img src="img/garden-entrance.jpg" alt="緑に包まれた入口まわり" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 6px" />
+  <section class="dark">
+    <div class="dark-inner">
+      <h2>今日の営業情報を確認して、<br>静かなひと休みへ。</h2>
+      <p style="margin-bottom: 24px; opacity: 0.85;">営業状況・臨時休業のお知らせはInstagramをご覧ください。</p>
+      <div class="buttons">
+        <a class="button primary" href="https://www.instagram.com/kokope_0608?utm_source=ig_web_button_share_sheet&amp;igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener">Instagramを見る</a>
+        <a class="button secondary" href="tel:0467-33-5963">電話で問い合わせる</a>
+        <a class="button secondary" href="https://www.google.com/maps/search/?api=1&amp;query=%E7%A5%9E%E5%A5%88%E5%B7%9D%E7%9C%8C%E9%8E%8C%E5%80%89%E5%B8%82%E6%89%87%E3%82%AC%E8%B0%B71-9-14" target="_blank" rel="noopener">Googleマップで場所を確認する</a>
       </div>
     </div>
+    <footer>このページは営業提案用の非公式デモです。掲載内容・画像は仮のものです。<br>正式な店舗情報は公式InstagramまたはGoogleマップをご確認ください。</footer>
   </section>
-
-  <!-- 6. 店舗情報 -->
-  <section data-screen-label="店舗情報" style="background: #FFFDF8; padding: 76px 24px">
-    <div style="max-width: 680px; margin: 0 auto">
-      <p style="margin: 0 0 14px; font-size: 12px; letter-spacing: 0.28em; color: #7A8B6F; font-weight: 500; text-align: center">店舗情報</p>
-      <h2 style="margin: 0 0 40px; font-family: 'Zen Old Mincho', serif; font-weight: 500; font-size: clamp(24px, 5.6vw, 34px); line-height: 1.6; letter-spacing: 0.06em; text-align: center">ご来店の前に</h2>
-      <div style="display: flex; flex-direction: column">
-        <div style="display: flex; flex-wrap: wrap; gap: 4px 20px; padding: 16px 4px; border-top: 1px solid #E2D8C6">
-          <p style="margin: 0; width: 6em; font-size: 13px; color: #8A7E70; letter-spacing: 0.1em">店名</p>
-          <p style="margin: 0; flex: 1; min-width: 200px; font-size: 14px">燕カフェ</p>
-        </div>
-        <div style="display: flex; flex-wrap: wrap; gap: 4px 20px; padding: 16px 4px; border-top: 1px solid #E2D8C6">
-          <p style="margin: 0; width: 6em; font-size: 13px; color: #8A7E70; letter-spacing: 0.1em">業種</p>
-          <p style="margin: 0; flex: 1; min-width: 200px; font-size: 14px">古民家カフェ・喫茶</p>
-        </div>
-        <div style="display: flex; flex-wrap: wrap; gap: 4px 20px; padding: 16px 4px; border-top: 1px solid #E2D8C6">
-          <p style="margin: 0; width: 6em; font-size: 13px; color: #8A7E70; letter-spacing: 0.1em">住所</p>
-          <p style="margin: 0; flex: 1; min-width: 200px; font-size: 14px">〒248-0006 神奈川県鎌倉市小町3丁目2-27</p>
-        </div>
-        <div style="display: flex; flex-wrap: wrap; gap: 4px 20px; padding: 16px 4px; border-top: 1px solid #E2D8C6">
-          <p style="margin: 0; width: 6em; font-size: 13px; color: #8A7E70; letter-spacing: 0.1em">営業時間</p>
-          <p style="margin: 0; flex: 1; min-width: 200px; font-size: 14px">11:30〜16:00（土・日は17:00まで）<br /><span style="font-size: 12px; color: #8A7E70">※お食事は売り切れ次第終了となる場合があります</span></p>
-        </div>
-        <div style="display: flex; flex-wrap: wrap; gap: 4px 20px; padding: 16px 4px; border-top: 1px solid #E2D8C6">
-          <p style="margin: 0; width: 6em; font-size: 13px; color: #8A7E70; letter-spacing: 0.1em">アクセス</p>
-          <p style="margin: 0; flex: 1; min-width: 200px; font-size: 14px">JR・江ノ電「鎌倉駅」東口より徒歩約12分</p>
-        </div>
-        <div style="display: flex; flex-wrap: wrap; gap: 4px 20px; padding: 16px 4px; border-top: 1px solid #E2D8C6">
-          <p style="margin: 0; width: 6em; font-size: 13px; color: #8A7E70; letter-spacing: 0.1em">電話</p>
-          <p style="margin: 0; flex: 1; min-width: 200px; font-size: 14px"><a href="tel:080-3597-7737" style="color: #3A322A">080-3597-7737</a></p>
-        </div>
-        <div style="display: flex; flex-wrap: wrap; gap: 4px 20px; padding: 16px 4px; border-top: 1px solid #E2D8C6; border-bottom: 1px solid #E2D8C6">
-          <p style="margin: 0; width: 6em; font-size: 13px; color: #8A7E70; letter-spacing: 0.1em">ご予約・SNS</p>
-          <p style="margin: 0; flex: 1; min-width: 200px; font-size: 14px"><a href="https://www.instagram.com/" target="_blank" rel="noopener" style="color: #3A322A">Instagram</a>（最新の営業日・ご予約はこちら）</p>
-        </div>
-      </div>
-      <div style="display: flex; justify-content: center; margin-top: 32px">
-        <a href="https://www.google.com/maps/search/?api=1&amp;query=%E7%87%95CAFE+%E9%8E%8C%E5%80%89%E5%B8%82%E5%B0%8F%E7%94%BA" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 12px 34px; background: transparent; color: #3A322A; text-decoration: none; border-radius: 999px; font-size: 15px; font-weight: 500; letter-spacing: 0.08em; border: 1px solid #B4A895" style-hover="background: #EFE7D8">Googleマップで見る</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- 7. 最後のCTA -->
-  <section data-screen-label="最後のCTA" style="background: #2F2922; color: #F6F1E7; padding: 84px 24px; text-align: center">
-    <div style="max-width: 680px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 24px">
-      <h2 style="margin: 0; font-family: 'Zen Old Mincho', serif; font-weight: 500; font-size: clamp(24px, 5.6vw, 34px); line-height: 1.7; letter-spacing: 0.06em">今日の営業情報を確認して、<br />静かなひと休みへ。</h2>
-      <p style="margin: 0; font-size: 14px; color: #C9BFB0; text-wrap: pretty">最新の営業日やメニューは、Instagramでお知らせしています。</p>
-      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; width: 100%">
-        <a href="https://www.instagram.com/" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 12px 34px; background: #F6F1E7; color: #2F2922; text-decoration: none; border-radius: 999px; font-size: 15px; font-weight: 500; letter-spacing: 0.08em" style-hover="background: #E4DAC8">Instagramを見る</a>
-        <a href="tel:080-3597-7737" style="display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 12px 34px; background: transparent; color: #F6F1E7; text-decoration: none; border-radius: 999px; font-size: 15px; font-weight: 500; letter-spacing: 0.08em; border: 1px solid #6E6357" style-hover="background: #3A332B">電話で問い合わせる</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- フッター -->
-  <footer style="background: #2F2922; padding: 0 24px 36px; text-align: center">
-    <div style="max-width: 680px; margin: 0 auto; border-top: 1px solid #4A4238; padding-top: 24px; display: flex; flex-direction: column; gap: 8px">
-      <p style="margin: 0; font-size: 13px; color: #C9BFB0; letter-spacing: 0.1em">燕カフェ｜神奈川県鎌倉市小町</p>
-      
-        <p style="margin: 0; font-size: 11px; color: #7D7365">このページは営業提案用の非公式デモです。掲載内容・画像は仮のものです。</p>
-      
-    </div>
-  </footer>
-
-</div>
-
-
+</main>
 </body>
 </html>
