@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Detour kamakura｜サンプルHP</title>
+<meta name="description" content="鎌倉駅から徒歩6〜7分、路地の奥にある焼き菓子とお茶のお店 Detour kamakura のサンプルHPです。" />
+<meta property="og:title" content="Detour kamakura｜サンプルHP" />
+<meta property="og:description" content="鎌倉の路地裏で、焼き菓子とお茶を静かに楽しめる小さなカフェ。" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="images/hero.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;700&display=swap" />
+<style>
+  :root{
+    --bg:#faf7f2; --fg:#2b2622; --muted:#7a716a; --card:#ffffff; --border:#e8e2d8;
+    --primary:#6b4a2b; --primary-fg:#ffffff; --accent:#8a6a45; --muted-bg:#f2ede4;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--bg);color:var(--fg);font-family:"Noto Sans JP",sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  .serif{font-family:"Shippori Mincho",serif}
+  .container{max-width:1024px;margin:0 auto}
+  .btn{display:inline-flex;align-items:center;justify-content:center;height:48px;padding:0 24px;border-radius:12px;font-size:14px;font-weight:500;transition:.2s;cursor:pointer}
+  .btn-primary{background:var(--primary);color:var(--primary-fg)}
+  .btn-primary:hover{opacity:.9}
+  .btn-outline{border:1px solid var(--primary);color:var(--primary);background:transparent}
+  .btn-outline:hover{background:var(--primary);color:var(--primary-fg)}
+  .label{font-size:11px;letter-spacing:.3em;color:var(--accent);margin-bottom:12px;display:block}
+
+  /* Hero */
+  .hero{position:relative;height:78vh;min-height:520px;overflow:hidden}
+  .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .hero .overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.1),rgba(0,0,0,.3),rgba(0,0,0,.65))}
+  .hero .content{position:relative;z-index:1;display:flex;flex-direction:column;justify-content:flex-end;height:100%;padding:0 24px 56px;color:#fff}
+  .hero .tag{font-size:12px;letter-spacing:.35em;color:rgba(255,255,255,.8);margin-bottom:16px}
+  .hero h1{font-size:28px;line-height:1.55;color:#fff}
+  .hero p{margin-top:20px;max-width:480px;font-size:14px;line-height:1.75;color:rgba(255,255,255,.85)}
+  .hero .cta{margin-top:28px;display:flex;flex-direction:column;gap:12px}
+
+  section{padding:56px 24px}
+  .center{text-align:center}
+  h2.section-title{font-size:24px;line-height:1.7}
+  .lead{margin-top:24px;font-size:14px;line-height:2;color:var(--muted)}
+
+  .bg-muted{background:var(--muted-bg)}
+  .grid{display:grid;gap:24px}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+  .card h3{font-family:"Shippori Mincho",serif;font-size:18px;line-height:1.6;margin-bottom:16px}
+  .card p{font-size:14px;line-height:1.7;color:var(--muted)}
+
+  .split{display:grid;gap:40px}
+  .split .img{border-radius:16px;overflow:hidden}
+  .split .img img{width:100%;height:100%;object-fit:cover}
+
+  dl.info{border:1px solid var(--border);border-radius:16px;background:var(--card);overflow:hidden}
+  dl.info > div{display:grid;grid-template-columns:5rem 1fr;gap:16px;padding:16px 20px;border-top:1px solid var(--border)}
+  dl.info > div:first-child{border-top:0}
+  dl.info dt{font-size:12px;font-weight:500;letter-spacing:.08em;color:var(--accent)}
+  dl.info dd{font-size:14px;line-height:1.6;white-space:pre-line}
+
+  footer{border-top:1px solid var(--border);padding:40px 24px;text-align:center}
+  footer .name{font-family:"Shippori Mincho",serif;font-size:14px;letter-spacing:.2em}
+  footer .note{margin-top:16px;font-size:11px;line-height:1.7;color:var(--muted)}
+
+  @media (min-width:640px){
+    section{padding:96px 40px}
+    .hero .content{padding:0 40px 56px}
+    .hero h1{font-size:44px}
+    h2.section-title{font-size:30px}
+    .grid-3{grid-template-columns:repeat(3,1fr)}
+    .split{grid-template-columns:1fr 1fr;align-items:center}
+    dl.info > div{grid-template-columns:8rem 1fr;padding:16px 28px}
+    .hero .cta{flex-direction:row}
+  }
+</style>
+</head>
+<body>
+<main>
+  <!-- Hero -->
+  <section class="hero" style="padding:0">
+    <img src="images/hero.jpg" alt="路地の奥にある静かな焼き菓子店の店内" />
+    <div class="overlay"></div>
+    <div class="content">
+      <p class="tag">DETOUR KAMAKURA</p>
+      <h1 class="serif">鎌倉の路地の奥で、<br/>甘いお茶時間を。</h1>
+      <p>鎌倉駅から徒歩6〜7分。路地の奥にある焼き菓子店で、焼き菓子とお茶、お酒をお楽しみください。</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="https://www.instagram.com/detour_kamakura/" target="_blank" rel="noreferrer">Instagramで最新情報を見る</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Concept -->
+  <section>
+    <div class="container center" style="max-width:640px">
+      <span class="label">CONCEPT ｜ お店について</span>
+      <h2 class="section-title serif">焼き菓子とお茶で、<br/>甘いひと休み。</h2>
+      <p class="lead">観光地の賑わいから少し離れた路地の奥。<br/>木のテーブルと植物に囲まれた店内で、<br/>焼き菓子とお茶をゆったりとお楽しみいただけます。</p>
+    </div>
+  </section>
+
+  <!-- Reasons -->
+  <section class="bg-muted">
+    <div class="container">
+      <div class="center" style="margin-bottom:48px">
+        <span class="label">REASONS ｜ 選ばれる理由</span>
+        <h2 class="section-title serif">Detour kamakuraで過ごす理由</h2>
+      </div>
+      <div class="grid grid-3">
+        <div class="card"><h3>路地の奥の一軒</h3><p>駅から少し歩いた先の一軒。鎌倉散策の途中に、ひと息つきたい時にも立ち寄りやすい場所です。</p></div>
+        <div class="card"><h3>焼き菓子とお茶の相性</h3><p>焼き菓子に合わせて選べるお茶やお酒。甘さと香りの組み合わせをゆっくり味わえます。</p></div>
+        <div class="card"><h3>店内でも持ち帰りでも</h3><p>イートインとテイクアウトに対応。店内で過ごす日も、焼き菓子を持ち帰る日も、気分に合わせて。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Atmosphere -->
+  <section>
+    <div class="container split" style="max-width:960px">
+      <div class="img"><img src="images/atmosphere.jpg" alt="窓際の木のテーブルに置かれた花とお茶" /></div>
+      <div>
+        <span class="label">ATMOSPHERE ｜ 店内の空気</span>
+        <h2 class="section-title serif">静かに流れる、<br/>鎌倉の時間。</h2>
+        <p class="lead">木のテーブルと植物に囲まれた店内で、焼き菓子とお茶を静かに。おひとりでも、少人数の会話にも合うお店です。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sweets -->
+  <section class="bg-muted">
+    <div class="container" style="max-width:960px">
+      <div class="center" style="margin-bottom:40px">
+        <span class="label">SWEETS &amp; DRINKS ｜ 焼き菓子と飲み物</span>
+        <h2 class="section-title serif">焼き菓子とお飲み物</h2>
+      </div>
+      <div class="split">
+        <div class="img"><img src="images/sweets.jpg" alt="小さな焼き菓子とお茶が並ぶテーブル" /></div>
+        <div>
+          <p class="lead" style="margin-top:0">焼き菓子を中心に、お茶やお酒とご一緒にお楽しみいただけるお店です。<br/><br/>メニューや価格は時期により変わる可能性があるため、最新の内容はInstagramまたは店舗へご確認ください。</p>
+          <a class="btn btn-outline" style="margin-top:24px;height:44px" href="https://www.instagram.com/detour_kamakura/" target="_blank" rel="noreferrer">Instagramで見る</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- First visit -->
+  <section>
+    <div class="container" style="max-width:640px">
+      <div class="center" style="margin-bottom:32px">
+        <span class="label">FIRST VISIT ｜ 初めての方へ</span>
+        <h2 class="section-title serif">初めての方へ</h2>
+      </div>
+      <div class="lead">
+        <p>お店は鎌倉駅から徒歩6〜7分、路地の奥にあります。<br/>初めての方は、少しゆっくり歩きながら探してみてください。</p>
+        <p style="margin-top:20px">火曜日・水曜日は定休日です。<br/>営業状況や当日のメニューが気になる方は、来店前にInstagramでのご確認がおすすめです。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Store info -->
+  <section class="bg-muted">
+    <div class="container" style="max-width:640px">
+      <div class="center" style="margin-bottom:40px">
+        <span class="label">STORE INFO ｜ 店舗情報</span>
+        <h2 class="section-title serif">店舗情報</h2>
+      </div>
+      <dl class="info">
+        <div><dt>店名</dt><dd>Detour kamakura</dd></div>
+        <div><dt>業種</dt><dd>カフェ・喫茶／焼き菓子店</dd></div>
+        <div><dt>住所</dt><dd>〒248-0012
+神奈川県鎌倉市御成町20-12</dd></div>
+        <div><dt>営業時間</dt><dd>木曜日〜月曜日
+11:30〜17:30</dd></div>
+        <div><dt>定休日</dt><dd>火曜日・水曜日</dd></div>
+        <div><dt>ご利用</dt><dd>イートイン／テイクアウト対応</dd></div>
+        <div><dt>SNS</dt><dd>Instagram (@detour_kamakura)</dd></div>
+      </dl>
+      <a class="btn btn-outline" style="margin-top:24px;width:100%" href="https://www.google.com/maps/place/Detour+kamakura/@35.3169771,139.5444354,17z/data=!3m1!4b1!4m6!3m5!1s0x60184568447027b7:0xc635d4f382d96521!8m2!3d35.3169771!4d139.5470103" target="_blank" rel="noreferrer">Googleマップで見る</a>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section>
+    <div class="container center" style="max-width:560px">
+      <h2 class="section-title serif">鎌倉散策の途中に、<br/>焼き菓子とお茶を。</h2>
+      <p class="lead">営業日や最新メニューをご確認のうえ、<br/>鎌倉散策の途中にお立ち寄りください。</p>
+      <a class="btn btn-primary" style="margin-top:32px;width:100%" href="https://www.instagram.com/detour_kamakura/" target="_blank" rel="noreferrer">Instagramを見る</a>
+    </div>
+  </section>
+
+  <footer>
+    <p class="name">Detour kamakura</p>
+    <p class="note">このページは営業提案用の非公式デモです。<br/>掲載内容・画像は仮のものです。</p>
+  </footer>
+</main>
+</body>
+</html>
