@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>お堀と青木カフェ｜サンプルHP</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="お堀と青木カフェ｜サンプルHP" />
+<meta property="og:description" content="旧医院で味わう、静かなコーヒー時間。松本城の総堀前、旧青木医院を活かしたカフェ。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; overflow-x: hidden; background: #F5F0E7; }
+  body { font-family: 'Zen Kaku Gothic New', sans-serif; color: #2E2A26; -webkit-font-smoothing: antialiased; }
+  img { display: block; max-width: 100%; }
+  a { color: #4A3528; text-decoration: none; }
+  a:hover { color: #B08A48; }
+  @keyframes ao-fade { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+</style>
+</helmet>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#4A3528"/><g transform="translate(50 50)"><circle r="22" fill="none" stroke="#B08A48" stroke-width="2.5"/><path d="M-9 -6 h14 a6 6 0 0 1 0 12 h-2 M-9 -6 v16 a5 5 0 0 0 5 5 h6 a5 5 0 0 0 5 -5 v-4" fill="none" stroke="#F5F0E7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></g></svg></template>
+<div style="width:100%; max-width:820px; margin:0 auto; background:#F5F0E7; overflow:hidden;">
+
+  <!-- 1. ファーストビュー -->
+  <section style="position:relative; width:100%;">
+    <div style="position:relative; width:100%; aspect-ratio:4/5; max-height:82vh; overflow:hidden;">
+      <img src="images/hero-exterior.png" alt="旧青木医院を活かしたカフェの外観" style="width:100%; height:100%; object-fit:cover; object-position:center;" />
+      <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(46,42,38,0.10) 0%, rgba(46,42,38,0.05) 45%, rgba(46,42,38,0.62) 100%);"></div>
+      <div style="position:absolute; left:0; right:0; bottom:0; padding:28px 24px 32px;">
+        <p style="margin:0 0 12px; font-size:12px; letter-spacing:0.28em; color:#F5F0E7; opacity:0.85;">MATSUMOTO ・ 旧青木医院</p>
+        <h1 style="margin:0 0 14px; font-family:'Shippori Mincho', serif; font-weight:600; font-size:30px; line-height:1.5; color:#F8F4EC; letter-spacing:0.02em;">旧医院で味わう、<br />静かなコーヒー時間。</h1>
+        <p style="margin:0 0 22px; font-size:14px; line-height:1.9; color:#EDE6D8; max-width:34em;">松本城の総堀前にある、旧青木医院を活かしたカフェ。古い建物の趣を感じながら、コーヒーと音楽に包まれて、穏やかなひとときを過ごせます。</p>
+        <div style="display:flex; flex-wrap:wrap; gap:12px;">
+          <a href="https://www.instagram.com/ohori_to_aoki_cafe/?hl=ja" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; justify-content:center; min-height:52px; padding:0 26px; background:#4A3528; color:#F5F0E7; font-size:15px; font-weight:500; border-radius:10px; border:1px solid rgba(245,240,231,0.25);">Instagramを見る</a>
+          <a href="#info" onClick="{{ onJump }}" style="display:inline-flex; align-items:center; justify-content:center; min-height:52px; padding:0 22px; background:rgba(245,240,231,0.12); color:#F5F0E7; font-size:15px; font-weight:500; border-radius:10px; border:1px solid rgba(245,240,231,0.45);">店舗情報を確認する</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. 選ばれる理由 -->
+  <section data-reveal="1" style="padding:64px 24px 8px;">
+    <p style="margin:0 0 10px; font-size:12px; letter-spacing:0.24em; color:#B08A48;">REASON</p>
+    <h2 style="margin:0 0 16px; font-family:'Shippori Mincho', serif; font-weight:600; font-size:24px; line-height:1.55;">お堀と青木カフェが<br />選ばれる理由</h2>
+    <p style="margin:0 0 32px; font-size:14px; line-height:1.95; color:#5c5348;">派手さではなく、建物の趣、静かな空気、コーヒーをゆっくり楽しめる時間が魅力のカフェです。</p>
+    <div style="display:flex; flex-direction:column; gap:16px;">
+      <div style="background:#FBF8F1; border:1px solid #E4DBCB; border-radius:12px; padding:24px 22px;">
+        <div style="font-family:'Shippori Mincho', serif; font-size:13px; color:#B08A48; letter-spacing:0.1em; margin-bottom:10px;">01</div>
+        <h3 style="margin:0 0 10px; font-family:'Shippori Mincho', serif; font-weight:600; font-size:18px; line-height:1.6;">旧医院の面影を残した空間</h3>
+        <p style="margin:0; font-size:14px; line-height:1.9; color:#5c5348;">かつての医院の雰囲気を活かした店内で、ほかのカフェとは少し違う時間を過ごせます。</p>
+      </div>
+      <div style="background:#FBF8F1; border:1px solid #E4DBCB; border-radius:12px; padding:24px 22px;">
+        <div style="font-family:'Shippori Mincho', serif; font-size:13px; color:#B08A48; letter-spacing:0.1em; margin-bottom:10px;">02</div>
+        <h3 style="margin:0 0 10px; font-family:'Shippori Mincho', serif; font-weight:600; font-size:18px; line-height:1.6;">松本城周辺で立ち寄りやすい立地</h3>
+        <p style="margin:0; font-size:14px; line-height:1.9; color:#5c5348;">松本城の総堀前にあり、散策や観光の途中の休憩にも向いています。</p>
+      </div>
+      <div style="background:#FBF8F1; border:1px solid #E4DBCB; border-radius:12px; padding:24px 22px;">
+        <div style="font-family:'Shippori Mincho', serif; font-size:13px; color:#B08A48; letter-spacing:0.1em; margin-bottom:10px;">03</div>
+        <h3 style="margin:0 0 10px; font-family:'Shippori Mincho', serif; font-weight:600; font-size:18px; line-height:1.6;">静かに過ごせる15席のカフェ</h3>
+        <p style="margin:0; font-size:14px; line-height:1.9; color:#5c5348;">大きなお店ではなく、落ち着いてコーヒーを飲みたい方に合う小さな空間です。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. コーヒーと喫茶時間 -->
+  <section data-reveal="1" style="padding:64px 0 8px;">
+    <div style="padding:0 24px;">
+      <p style="margin:0 0 10px; font-size:12px; letter-spacing:0.24em; color:#B08A48;">COFFEE</p>
+      <h2 style="margin:0 0 16px; font-family:'Shippori Mincho', serif; font-weight:600; font-size:24px; line-height:1.55;">コーヒーと喫茶時間</h2>
+      <p style="margin:0 0 24px; font-size:14px; line-height:1.95; color:#5c5348;">コーヒーを中心に、静かな店内でゆっくり過ごせるカフェです。</p>
+    </div>
+    <div style="width:100%; aspect-ratio:4/5; max-height:70vh; overflow:hidden;">
+      <img src="images/coffee-window.png" alt="窓辺のコーヒーと小さなお菓子" style="width:100%; height:100%; object-fit:cover; object-position:center;" />
+    </div>
+    <div style="padding:24px 24px 0;">
+      <div style="background:#FBF8F1; border:1px solid #E4DBCB; border-radius:12px; padding:22px 22px;">
+        <p style="margin:0; font-size:13.5px; line-height:2.0; color:#5c5348;">最新のメニューや価格は、来店前にInstagramまたはお電話での確認をおすすめします。このページではコーヒーを中心とした喫茶利用としてご紹介しています。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. 初めての方へ -->
+  <section data-reveal="1" style="padding:64px 24px 8px;">
+    <p style="margin:0 0 10px; font-size:12px; letter-spacing:0.24em; color:#B08A48;">FIRST VISIT</p>
+    <h2 style="margin:0 0 16px; font-family:'Shippori Mincho', serif; font-weight:600; font-size:24px; line-height:1.55;">初めての方へ</h2>
+    <p style="margin:0 0 28px; font-size:14px; line-height:1.95; color:#5c5348;">旧医院の建物を活かしているため、初めて訪れる方は入口や店内への進み方に少し迷う場合があります。静かに過ごしたい方、松本城周辺で落ち着いて休憩したい方に向いています。</p>
+    <div style="background:#FBF8F1; border:1px solid #E4DBCB; border-radius:12px; overflow:hidden;">
+      <div style="display:flex; align-items:baseline; gap:18px; padding:17px 22px; border-bottom:1px solid #EBE3D4;"><span style="flex:0 0 68px; font-size:12px; letter-spacing:0.08em; color:#9a8f7c;">住所</span><span style="font-size:14.5px; line-height:1.8; color:#3f382f;">長野県松本市城東2丁目1-5</span></div>
+      <div style="display:flex; align-items:baseline; gap:18px; padding:17px 22px; border-bottom:1px solid #EBE3D4;"><span style="flex:0 0 68px; font-size:12px; letter-spacing:0.08em; color:#9a8f7c;">営業時間</span><span style="font-size:14.5px; line-height:1.8; color:#3f382f;">13:00〜18:00</span></div>
+      <div style="display:flex; align-items:baseline; gap:18px; padding:17px 22px; border-bottom:1px solid #EBE3D4;"><span style="flex:0 0 68px; font-size:12px; letter-spacing:0.08em; color:#9a8f7c;">定休日</span><span style="font-size:14.5px; line-height:1.8; color:#3f382f;">水・木曜日、第4・第5日曜日</span></div>
+      <div style="display:flex; align-items:baseline; gap:18px; padding:17px 22px; border-bottom:1px solid #EBE3D4;"><span style="flex:0 0 68px; font-size:12px; letter-spacing:0.08em; color:#9a8f7c;">席数</span><span style="font-size:14.5px; line-height:1.8; color:#3f382f;">15席</span></div>
+      <div style="display:flex; align-items:baseline; gap:18px; padding:17px 22px; border-bottom:1px solid #EBE3D4;"><span style="flex:0 0 68px; font-size:12px; letter-spacing:0.08em; color:#9a8f7c;">お支払い</span><span style="font-size:14.5px; line-height:1.8; color:#3f382f;">現金・PayPay</span></div>
+      <div style="display:flex; align-items:baseline; gap:18px; padding:17px 22px; border-bottom:1px solid #EBE3D4;"><span style="flex:0 0 68px; font-size:12px; letter-spacing:0.08em; color:#9a8f7c;">駐車場</span><span style="font-size:14.5px; line-height:1.8; color:#3f382f;">10台（場所は来店前にご確認ください）</span></div>
+      <div style="display:flex; align-items:baseline; gap:18px; padding:17px 22px;"><span style="flex:0 0 68px; font-size:12px; letter-spacing:0.08em; color:#9a8f7c;">お電話</span><span style="font-size:14.5px; line-height:1.8; color:#3f382f;">0263-32-0053</span></div>
+    </div>
+  </section>
+
+  <!-- 5. 店舗の雰囲気 -->
+  <section data-reveal="1" style="padding:64px 0 8px;">
+    <div style="padding:0 24px;">
+      <p style="margin:0 0 10px; font-size:12px; letter-spacing:0.24em; color:#B08A48;">ATMOSPHERE</p>
+      <h2 style="margin:0 0 16px; font-family:'Shippori Mincho', serif; font-weight:600; font-size:24px; line-height:1.55;">レトロな空間で、<br />静かにひと息。</h2>
+      <p style="margin:0 0 24px; font-size:14px; line-height:1.95; color:#5c5348;">木の家具、古い建物の質感、窓から入る自然光。にぎやかに過ごすよりも、コーヒーを飲みながら静かに休みたい方に合う雰囲気です。BGMや音響も、店内で過ごす時間の一部として楽しめます。</p>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:12px;">
+      <div style="width:100%; aspect-ratio:4/5; max-height:78vh; overflow:hidden;">
+        <img src="images/interior.png" alt="自然光が差し込むレトロな喫茶室" style="width:100%; height:100%; object-fit:cover; object-position:center;" />
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. 店舗情報 -->
+  <section id="info" data-reveal="1" style="padding:64px 24px 8px;">
+    <p style="margin:0 0 10px; font-size:12px; letter-spacing:0.24em; color:#B08A48;">INFORMATION</p>
+    <h2 style="margin:0 0 24px; font-family:'Shippori Mincho', serif; font-weight:600; font-size:24px; line-height:1.55;">店舗情報</h2>
+    <div style="background:#FBF8F1; border:1px solid #E4DBCB; border-radius:12px; overflow:hidden;">
+      <div style="padding:18px 20px; border-bottom:1px solid #EBE3D4;"><div style="font-size:11px; letter-spacing:0.12em; color:#9a8f7c; margin-bottom:6px;">店名</div><div style="font-size:15px; line-height:1.7; color:#2E2A26;">お堀と青木カフェ（旧青木医院）</div></div>
+      <div style="padding:18px 20px; border-bottom:1px solid #EBE3D4;"><div style="font-size:11px; letter-spacing:0.12em; color:#9a8f7c; margin-bottom:6px;">業種</div><div style="font-size:15px; line-height:1.7; color:#2E2A26;">コーヒーショップ・喫茶店</div></div>
+      <div style="padding:18px 20px; border-bottom:1px solid #EBE3D4;"><div style="font-size:11px; letter-spacing:0.12em; color:#9a8f7c; margin-bottom:6px;">住所</div><div style="font-size:15px; line-height:1.8; color:#2E2A26;">〒390-0807<br />長野県松本市城東2丁目1-5</div><a href="https://www.google.com/maps/place/%E3%81%8A%E5%A0%80%E3%81%A8%E9%9D%92%E6%9C%A8%E3%82%AB%E3%83%95%E3%82%A7%EF%BC%88%E6%97%A7%E9%9D%92%E6%9C%A8%E5%8C%BB%E9%99%A2%EF%BC%89/@36.2396076,137.971144,17z/data=!3m1!4b1!4m6!3m5!1s0x601d0f41c7f4fe5b:0xe96ee4413c63872c!8m2!3d36.2396076!4d137.9737189!16s%2Fg%2F11rcxjfhqw?entry=ttu" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; min-height:44px; margin-top:10px; font-size:14px; color:#4A3528; border-bottom:1px solid #C9BEA8;">Googleマップで見る</a></div>
+      <div style="padding:18px 20px; border-bottom:1px solid #EBE3D4;"><div style="font-size:11px; letter-spacing:0.12em; color:#9a8f7c; margin-bottom:6px;">営業時間</div><div style="font-size:15px; line-height:1.8; color:#2E2A26;">13:00〜18:00<br /><span style="font-size:13.5px; color:#5c5348;">定休日：水・木曜日、第4・第5日曜日</span></div></div>
+      <div style="padding:18px 20px; border-bottom:1px solid #EBE3D4;"><div style="font-size:11px; letter-spacing:0.12em; color:#9a8f7c; margin-bottom:6px;">電話番号</div><div style="font-size:15px; line-height:1.8; color:#2E2A26;">0263-32-0053</div></div>
+      <div style="padding:18px 20px;"><div style="font-size:11px; letter-spacing:0.12em; color:#9a8f7c; margin-bottom:6px;">SNS</div><div style="font-size:15px; line-height:1.7;"><a href="https://www.instagram.com/ohori_to_aoki_cafe/?hl=ja" target="_blank" rel="noopener" style="color:#4A3528; border-bottom:1px solid #C9BEA8; padding-bottom:1px;">Instagram</a></div></div>
+    </div>
+  </section>
+
+  <!-- 7. 最後のCTA -->
+  <section data-reveal="1" style="margin:64px 0 0; padding:56px 24px; background:#4A3528; text-align:center;">
+    <h2 style="margin:0 0 16px; font-family:'Shippori Mincho', serif; font-weight:600; font-size:23px; line-height:1.6; color:#F8F4EC;">松本城周辺で、<br />静かなひと休みを。</h2>
+    <p style="margin:0 auto 28px; font-size:14px; line-height:1.95; color:#DCD2C0; max-width:30em;">観光や散策の合間に、旧医院の面影を残す空間でコーヒーを楽しみませんか。最新の営業情報はInstagramまたはお電話でご確認ください。</p>
+    <a href="https://www.instagram.com/ohori_to_aoki_cafe/?hl=ja" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; justify-content:center; min-height:54px; padding:0 34px; background:#B08A48; color:#2A1F16; font-size:15px; font-weight:700; border-radius:10px;">Instagramを見る</a>
+  </section>
+
+  <!-- 8. デモ注記 -->
+  <footer style="padding:26px 24px 40px; text-align:center; background:#F5F0E7;">
+    <p style="margin:0 0 6px; font-family:'Shippori Mincho',serif; font-size:13px; color:#6b6156;">お堀と青木カフェ（旧青木医院）</p>
+    <p style="margin:0; font-size:11px; line-height:1.8; color:#9a8f7c;">このページは営業提案用の非公式デモです。掲載内容・画像は仮のものです。</p>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    const root = this.dcRoot || document;
+    const els = root.querySelectorAll('[data-reveal]');
+    els.forEach((el) => {
+      el.style.opacity = '0';
+      el.style.willChange = 'opacity, transform';
+    });
+    if (!('IntersectionObserver' in window)) {
+      els.forEach((el) => { el.style.opacity = '1'; });
+      return;
+    }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.style.animation = 'ao-fade 0.9s ease both';
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    els.forEach((el) => io.observe(el));
+  }
+  renderVals() {
+    return {
+      onJump: (ev) => {
+        ev.preventDefault();
+        const root = this.dcRoot || document;
+        const t = root.querySelector('#info');
+        if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      },
+    };
+  }
+}
+</script>
+</body>
+</html>
