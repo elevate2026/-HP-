@@ -25,6 +25,31 @@
     @keyframes kb-out{from{transform:scale(1.13)}to{transform:scale(1.02)}}
     @keyframes hero-in{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
     @keyframes scroll-line{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+    @media (max-width:959px){
+      .site-header-inner{gap:8px!important;padding:10px 12px!important;}
+      .site-brand{gap:8px!important;min-width:0;}
+      .header-logo-mark{width:40px!important;height:40px!important;}
+      .header-brand-name{font-size:15px!important;letter-spacing:0.16em!important;white-space:nowrap;}
+      .header-brand-subtitle{font-size:7px!important;letter-spacing:0.16em!important;white-space:nowrap;}
+      .mobile-header-actions{gap:4px!important;flex:none;}
+      .mobile-reserve-button{flex:none;white-space:nowrap;padding:10px 14px!important;font-size:12px!important;letter-spacing:0.06em!important;}
+      .mobile-menu-button{width:42px!important;height:42px!important;}
+      .hero-content{padding:clamp(116px,18vh,132px) 14px 184px!important;}
+      .hero-subtitle{font-size:clamp(10px,2.8vw,13px)!important;letter-spacing:0.06em!important;white-space:nowrap;}
+      .hero-description{font-size:clamp(9px,2.55vw,12px)!important;line-height:2.15!important;letter-spacing:0.04em!important;white-space:nowrap;}
+      .hero-cta{margin-top:22px!important;padding:16px 44px!important;}
+      .hero-scroll{bottom:12px!important;gap:10px!important;}
+      .hero-scroll-link{gap:6px!important;}
+      .hero-scroll-line{height:30px!important;}
+    }
+    @media (max-width:380px){
+      .site-header-inner{padding-inline:10px!important;}
+      .header-logo-mark{width:38px!important;height:38px!important;}
+      .header-brand-name{font-size:14px!important;letter-spacing:0.14em!important;}
+      .header-brand-subtitle{display:none!important;}
+      .mobile-reserve-button{padding-inline:12px!important;font-size:11.5px!important;}
+      .mobile-menu-button{width:40px!important;height:40px!important;}
+    }
   </style>
 </helmet>
 
@@ -39,12 +64,12 @@
 <!-- ============ HEADER ============ -->
 <header data-screen-label="HEADER" style="position:fixed;top:0;left:0;right:0;z-index:100;color:#FFFFFF">
   <div style="position:absolute;inset:0;background:rgba(253,251,248,0.94);backdrop-filter:blur(10px);opacity:{{ hdrBgOp }};transition:opacity 0.35s ease;box-shadow:{{ hdrShadow }}"></div>
-  <div style="position:relative;display:flex;align-items:center;justify-content:space-between;gap:16px;max-width:1280px;margin:0 auto;padding:12px clamp(16px,3vw,32px);color:{{ hdrFg }};transition:color 0.35s ease">
-    <a href="#home" onClick="{{ closeMenu }}" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit">
-      <span role="img" aria-label="BACANCES ロゴ" style="width:46px;height:46px;border-radius:50%;background-color:#FFFFFF;background-image:url('images/logo.jpg');background-size:247%;background-position:50.4% 36.5%;background-repeat:no-repeat;box-shadow:0 0 0 1px rgba(46,42,38,0.1);flex:none"></span>
+  <div class="site-header-inner" style="position:relative;display:flex;align-items:center;justify-content:space-between;gap:16px;max-width:1280px;margin:0 auto;padding:12px clamp(16px,3vw,32px);color:{{ hdrFg }};transition:color 0.35s ease">
+    <a class="site-brand" href="#home" onClick="{{ closeMenu }}" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit">
+      <span class="header-logo-mark" role="img" aria-label="BACANCES ロゴ" style="width:46px;height:46px;border-radius:50%;background-color:#FFFFFF;background-image:url('images/logo.jpg');background-size:247%;background-position:50.4% 36.5%;background-repeat:no-repeat;box-shadow:0 0 0 1px rgba(46,42,38,0.1);flex:none"></span>
       <span style="display:flex;flex-direction:column;line-height:1.25">
-        <span style="font-family:'Jost',sans-serif;font-weight:500;font-size:19px;letter-spacing:0.24em">BACANCES</span>
-        <span style="font-family:'Jost',sans-serif;font-size:9px;letter-spacing:0.32em;opacity:0.75">HACCHOBORI / GINZA AREA</span>
+        <span class="header-brand-name" style="font-family:'Jost',sans-serif;font-weight:500;font-size:19px;letter-spacing:0.24em">BACANCES</span>
+        <span class="header-brand-subtitle" style="font-family:'Jost',sans-serif;font-size:9px;letter-spacing:0.32em;opacity:0.75">HACCHOBORI / GINZA AREA</span>
       </span>
     </a>
     <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
@@ -56,9 +81,9 @@
       </nav>
     </sc-if>
     <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
-      <div style="display:flex;align-items:center;gap:8px">
-        <a href="{{ hp }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;background:var(--accent);color:#FFFFFF;text-decoration:none;border-radius:999px;padding:11px 18px;font-size:12px;letter-spacing:0.1em;font-weight:500">予約する</a>
-        <button aria-label="メニューを開閉" onClick="{{ toggleMenu }}" style="width:48px;height:48px;background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:inherit;padding:0">
+      <div class="mobile-header-actions" style="display:flex;align-items:center;gap:8px">
+        <a class="mobile-reserve-button" href="{{ hp }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;background:var(--accent);color:#FFFFFF;text-decoration:none;border-radius:999px;padding:11px 18px;font-size:12px;letter-spacing:0.1em;font-weight:500">予約する</a>
+        <button class="mobile-menu-button" aria-label="メニューを開閉" onClick="{{ toggleMenu }}" style="width:48px;height:48px;background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:inherit;padding:0">
           <span style="display:block;width:26px;height:1.5px;background:currentColor;transition:transform 0.35s ease;transform:{{ bl1 }}"></span>
           <span style="display:block;width:26px;height:1.5px;background:currentColor;transition:opacity 0.35s ease;opacity:{{ bl2 }}"></span>
           <span style="display:block;width:26px;height:1.5px;background:currentColor;transition:transform 0.35s ease;transform:{{ bl3 }}"></span>
@@ -86,22 +111,22 @@
   </sc-for>
   <div style="position:absolute;inset:0;background:#171310;opacity:var(--hero-dim,0.42);pointer-events:none"></div>
   <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(23,19,16,0.35) 0%,rgba(23,19,16,0) 38%,rgba(23,19,16,0.4) 100%);pointer-events:none"></div>
-  <div style="position:relative;z-index:5;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#FFFFFF;padding:132px 24px 210px;justify-content:flex-start;animation:hero-in 1.5s ease 0.2s both">
+  <div class="hero-content" style="position:relative;z-index:5;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#FFFFFF;padding:132px 24px 210px;justify-content:flex-start;animation:hero-in 1.5s ease 0.2s both">
     <p style="font-family:'Jost',sans-serif;font-size:clamp(10px,1.4vw,12px);letter-spacing:0.42em;text-indent:0.42em;opacity:0.85">BACANCES — HACCHOBORI, TOKYO</p>
     <h1 style="font-family:'Shippori Mincho',serif;font-weight:500;font-size:clamp(30px,5.4vw,54px);letter-spacing:0.12em;line-height:1.7;margin-top:22px;text-shadow:0 2px 30px rgba(20,16,12,0.35)">大人女性の髪に、<br>艶とまとまりを。</h1>
-    <p style="font-family:'Shippori Mincho',serif;font-size:clamp(15px,2.3vw,20px);letter-spacing:0.14em;line-height:2;margin-top:20px;text-shadow:0 1px 18px rgba(20,16,12,0.4)">八丁堀で叶える、髪質改善・酸性ストレート。</p>
-    <p style="font-size:clamp(12.5px,1.8vw,14px);line-height:2.3;letter-spacing:0.1em;opacity:0.92;margin-top:18px">白髪、くせ、パサつき、広がり。<br>年齢とともに変化する髪を、上質なケアで美しく整えます。</p>
-    <a href="{{ hp }}" target="_blank" rel="noopener" style="margin-top:26px;display:inline-flex;align-items:center;justify-content:center;background:var(--accent);color:#FFFFFF;text-decoration:none;border-radius:999px;padding:18px 56px;font-size:14.5px;letter-spacing:0.16em;font-weight:500;box-shadow:0 12px 30px rgba(15,11,8,0.35);transition:transform 0.3s ease,opacity 0.3s ease" style-hover="transform:translateY(-2px);opacity:0.9">空席確認・予約する</a>
+    <p class="hero-subtitle" style="font-family:'Shippori Mincho',serif;font-size:clamp(15px,2.3vw,20px);letter-spacing:0.14em;line-height:2;margin-top:20px;text-shadow:0 1px 18px rgba(20,16,12,0.4)">八丁堀で叶える、髪質改善・酸性ストレート。</p>
+    <p class="hero-description" style="font-size:clamp(12.5px,1.8vw,14px);line-height:2.3;letter-spacing:0.1em;opacity:0.92;margin-top:18px">白髪、くせ、パサつき、広がり。<br>年齢とともに変化する髪を、上質なケアで美しく整えます。</p>
+    <a class="hero-cta" href="{{ hp }}" target="_blank" rel="noopener" style="margin-top:26px;display:inline-flex;align-items:center;justify-content:center;background:var(--accent);color:#FFFFFF;text-decoration:none;border-radius:999px;padding:18px 56px;font-size:14.5px;letter-spacing:0.16em;font-weight:500;box-shadow:0 12px 30px rgba(15,11,8,0.35);transition:transform 0.3s ease,opacity 0.3s ease" style-hover="transform:translateY(-2px);opacity:0.9">空席確認・予約する</a>
   </div>
-  <div style="position:absolute;bottom:52px;left:0;right:0;z-index:6;display:flex;flex-direction:column;align-items:center;gap:20px;pointer-events:none">
+  <div class="hero-scroll" style="position:absolute;bottom:52px;left:0;right:0;z-index:6;display:flex;flex-direction:column;align-items:center;gap:20px;pointer-events:none">
     <div style="display:flex;justify-content:center;gap:10px;pointer-events:auto">
       <sc-for list="{{ dots }}" as="d" hint-placeholder-count="5">
         <button aria-label="スライド切り替え" onClick="{{ d.go }}" style="width:9px;height:9px;border-radius:50%;border:1px solid rgba(255,255,255,0.8);background:{{ d.bg }};padding:0;cursor:pointer;transition:background 0.4s ease"></button>
       </sc-for>
     </div>
-    <a href="#concept" style="display:flex;flex-direction:column;align-items:center;gap:8px;color:#FFFFFF;text-decoration:none;pointer-events:auto">
+    <a class="hero-scroll-link" href="#concept" style="display:flex;flex-direction:column;align-items:center;gap:8px;color:#FFFFFF;text-decoration:none;pointer-events:auto">
       <span style="font-family:'Jost',sans-serif;font-size:10px;letter-spacing:0.38em;text-indent:0.38em;opacity:0.85">SCROLL</span>
-      <span style="display:block;width:1px;height:44px;background:rgba(255,255,255,0.85);animation:scroll-line 2.2s ease-in-out infinite"></span>
+      <span class="hero-scroll-line" style="display:block;width:1px;height:44px;background:rgba(255,255,255,0.85);animation:scroll-line 2.2s ease-in-out infinite"></span>
     </a>
   </div>
 </section>
