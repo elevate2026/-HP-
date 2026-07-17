@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>NIVÉRA AOYAMA｜表参道・青山の美容室・ヘアサロン</title>
+<meta name="description" content="表参道駅から徒歩4分の架空ヘアサロンNIVÉRA AOYAMA。髪質、骨格、ライフスタイルに合わせ、毎日に自然と馴染むカット、透明感カラー、髪質ケアをご提案します。">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="NIVÉRA AOYAMA｜Quiet beauty, shaped for you.">
+<meta property="og:description" content="日常に自然と馴染む、上質で再現性の高いヘアデザインを。">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/hero-01-exterior.jpg">
+<meta name="theme-color" content="#47564C">
+<link rel="icon" type="image/png" href="assets/logo-symbol.png">
+<link rel="apple-touch-icon" href="assets/logo-symbol.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Inter:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--c-white:#FFFFFF;--c-ivory:#F4F1EA;--c-soft:#ECEAE5;--c-text:#242522;--c-sub:#676A64;--c-green:#47564C;--c-sage:#87968A;--c-beige:#C5AC96;--c-brown:#443B35;--c-border:#D9D5CD;}
+html{scroll-behavior:smooth;scroll-padding-top:96px;}
+body{margin:0;background:var(--c-white);color:var(--c-text);font-family:'Noto Sans JP',sans-serif;-webkit-font-smoothing:antialiased;text-size-adjust:100%;}
+a{color:var(--c-green);}a:hover{color:#39463F;}
+img{max-width:100%;}
+button,input,select,textarea{font-family:'Noto Sans JP',sans-serif;}
+:focus-visible{outline:2px solid var(--c-green);outline-offset:2px;}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto;}}
+</style>
+</helmet>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#47564C"/><text x="50" y="60" font-family="Georgia, serif" font-size="34" fill="#F4F1EA" text-anchor="middle" letter-spacing="2">N</text></svg></template>
+<header style="position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:space-between;gap:16px;height:{{ hdrH }};padding-inline:clamp(16px,4vw,48px);background:{{ hdrBg }};backdrop-filter:{{ hdrBlur }};-webkit-backdrop-filter:{{ hdrBlur }};border-bottom:{{ hdrBorder }};transition:background .4s ease,height .4s ease,border-color .4s ease;">
+  <a href="#home" aria-label="NIVÉRA AOYAMA ホームへ" style="display:flex;align-items:center;gap:12px;text-decoration:none;color:{{ hdrColor }};transition:color .4s ease;">
+    <img src="assets/logo-symbol.png" alt="" width="1024" height="1024" style="width:26px;height:26px;object-fit:contain;filter:{{ symFilter }};transition:filter .4s ease;">
+    <span style="display:flex;flex-direction:column;line-height:1;">
+      <span style="font-family:'Cormorant Garamond',serif;font-size:21px;letter-spacing:0.32em;">NIVÉRA</span>
+      <span style="font-family:'Inter',sans-serif;font-size:8px;letter-spacing:0.3em;margin-top:5px;opacity:0.8;">HAIR SALON / AOYAMA</span>
+    </span>
+  </a>
+  <sc-if value="{{ deskNav }}" hint-placeholder-val="{{ true }}">
+    <nav aria-label="メインナビゲーション" style="display:flex;align-items:center;gap:clamp(16px,2vw,28px);">
+      <sc-for list="{{ navList }}" as="n" hint-placeholder-count="7">
+        <a href="{{ n.href }}" style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:0.18em;text-decoration:none;color:{{ hdrColor }};opacity:0.9;transition:color .4s ease,opacity .3s ease;" style-hover="opacity:1;">{{ n.label }}</a>
+      </sc-for>
+    </nav>
+    <div style="display:flex;align-items:center;gap:12px;">
+      <button type="button" onClick="{{ openModal }}" aria-label="電話で問い合わせる（サンプル表示）" style="background:none;border:1px solid {{ hdrBtnBorder }};color:{{ hdrColor }};font-family:'Inter',sans-serif;font-size:11px;letter-spacing:0.18em;min-height:44px;min-width:44px;padding:0 16px;cursor:pointer;transition:all .4s ease;">TEL</button>
+      <button type="button" onClick="{{ openModal }}" style="display:inline-flex;align-items:center;gap:10px;background:{{ hdrCtaBg }};color:#FFFFFF;border:1px solid {{ hdrCtaBorder }};min-height:48px;padding:0 26px;font-size:13px;letter-spacing:0.14em;cursor:pointer;transition:all .4s ease;">WEB予約<span aria-hidden="true">→</span></button>
+    </div>
+  </sc-if>
+  <sc-if value="{{ showBurger }}" hint-placeholder-val="{{ false }}">
+    <button type="button" onClick="{{ toggleMenu }}" aria-label="メニューを開く" aria-expanded="{{ menuOpen }}" style="display:flex;flex-direction:column;justify-content:center;gap:7px;width:48px;height:48px;background:none;border:none;cursor:pointer;padding:12px 10px;">
+      <span style="display:block;height:1.5px;background:{{ hdrColor }};transition:background .4s ease;"></span>
+      <span style="display:block;height:1.5px;background:{{ hdrColor }};transition:background .4s ease;"></span>
+    </button>
+  </sc-if>
+</header>
+<sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+  <div role="dialog" aria-modal="true" aria-label="ナビゲーションメニュー" style="position:fixed;inset:0;z-index:70;background:var(--c-ivory);display:flex;flex-direction:column;overflow:auto;">
+    <div style="display:flex;align-items:center;justify-content:space-between;height:68px;padding-inline:clamp(16px,4vw,48px);">
+      <span style="display:flex;align-items:center;gap:10px;">
+        <img src="assets/logo-symbol.png" alt="" width="1024" height="1024" style="width:24px;height:24px;object-fit:contain;">
+        <span style="font-family:'Cormorant Garamond',serif;font-size:20px;letter-spacing:0.3em;color:var(--c-text);">NIVÉRA</span>
+      </span>
+      <button type="button" onClick="{{ closeMenu }}" aria-label="メニューを閉じる" style="background:none;border:none;cursor:pointer;width:48px;height:48px;font-size:22px;color:var(--c-text);line-height:1;">×</button>
+    </div>
+    <nav aria-label="モバイルナビゲーション" style="display:flex;flex-direction:column;gap:4px;padding:24px clamp(24px,7vw,48px);flex:1;">
+      <sc-for list="{{ menuNavList }}" as="n" hint-placeholder-count="9">
+        <a href="{{ n.href }}" onClick="{{ closeMenu }}" style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.7rem,6vw,2.2rem);letter-spacing:0.14em;color:var(--c-text);text-decoration:none;padding:10px 0;border-bottom:1px solid var(--c-border);display:flex;justify-content:space-between;align-items:center;">{{ n.label }}<span aria-hidden="true" style="font-size:1rem;color:var(--c-sage);">→</span></a>
+      </sc-for>
+    </nav>
+    <div style="padding:0 clamp(24px,7vw,48px) calc(32px + env(safe-area-inset-bottom));">
+      <button type="button" onClick="{{ menuReserve }}" style="display:flex;align-items:center;justify-content:center;gap:12px;width:100%;min-height:56px;background:var(--c-green);color:#FFFFFF;border:1px solid var(--c-green);font-size:14.5px;letter-spacing:0.14em;cursor:pointer;">WEBで予約する<span aria-hidden="true">→</span></button>
+    </div>
+  </div>
+</sc-if>
+<main>
+<section id="home" data-screen-label="HOME / ファーストビュー" style="position:relative;height:100svh;min-height:{{ heroMinH }};overflow:hidden;background:var(--c-brown);">
+  <sc-for list="{{ heroList }}" as="h" hint-placeholder-count="0">
+    <img src="{{ h.src }}" alt="{{ h.alt }}" width="{{ h.w }}" height="{{ h.h }}" loading="{{ h.load }}" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:{{ h.pos }};opacity:{{ h.op }};transform:{{ h.tf }};transition:opacity 1.8s ease,transform 8s ease-out;"> 
+  </sc-for>
+  <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(35,29,25,0.34),rgba(35,29,25,0.2) 55%,rgba(35,29,25,0.44));"></div>
+  <div style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:{{ heroJust }};width:min(100% - clamp(40px,8vw,128px),1200px);margin-inline:auto;padding-bottom:{{ heroPadB }};padding-top:80px;box-sizing:border-box;">
+    <div style="max-width:640px;color:#FFFFFF;">
+      <p style="margin:0 0 20px;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(1.9rem,4.8vw,3.8rem);line-height:1.15;letter-spacing:0.02em;">Quiet beauty, shaped for you.</p>
+      <h1 style="margin:0 0 18px;font-family:'Noto Serif JP',serif;font-weight:500;font-size:clamp(1.5rem,3.3vw,2.5rem);line-height:1.75;letter-spacing:0.06em;">静けさの中で、<br>自分らしさを整える。</h1>
+      <p style="margin:0 0 32px;font-size:clamp(0.875rem,1.2vw,1.05rem);line-height:2;opacity:0.92;">髪質、骨格、ライフスタイルに合わせて、<br>毎日に自然と馴染むヘアデザインをご提案します。</p>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;">
+        <button type="button" onClick="{{ openModal }}" style="display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:54px;padding:12px 34px;background:var(--c-green);color:#FFFFFF;border:1px solid var(--c-green);font-size:14px;letter-spacing:0.12em;cursor:pointer;transition:filter .3s ease;" style-hover="filter:brightness(0.88);">WEBで予約する<span aria-hidden="true">→</span></button>
+        <a href="#firstvisit" style="display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:54px;padding:12px 34px;background:rgba(255,255,255,0.08);color:#FFFFFF;border:1px solid rgba(255,255,255,0.65);font-size:14px;letter-spacing:0.12em;text-decoration:none;transition:background .3s ease;box-sizing:border-box;" style-hover="background:rgba(255,255,255,0.18);">初めての方へ</a>
+      </div>
+    </div>
+  </div>
+  <sc-if value="{{ showScrollHint }}" hint-placeholder-val="{{ false }}">
+    <a href="#concept" aria-label="コンセプトへスクロール" style="position:absolute;left:50%;bottom:26px;transform:translateX(-50%);z-index:2;color:#FFFFFF;text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:10px;font-family:'Inter',sans-serif;font-size:10px;letter-spacing:0.34em;">SCROLL<span aria-hidden="true" style="display:block;width:1px;height:42px;background:rgba(255,255,255,0.7);"></span></a>
+  </sc-if>
+</section>
+<section data-screen-label="BRAND MESSAGE" style="background:var(--c-ivory);padding-block:clamp(6rem,12vw,11rem);">
+  <div data-rv="brand" style="width:min(100% - 48px,760px);margin-inline:auto;text-align:center;opacity:{{ rv.brand.op }};transform:{{ rv.brand.tf }};transition:opacity .9s ease-out,transform .9s ease-out;">
+    <p style="margin:0;font-family:'Noto Serif JP',serif;font-weight:500;font-size:clamp(1.25rem,2.6vw,1.95rem);line-height:2.3;letter-spacing:0.08em;">派手に変えるのではなく、<br>あなたの中にある美しさを、丁寧に整える。</p>
+    <div aria-hidden="true" style="width:1px;height:52px;background:var(--c-beige);margin:36px auto;"></div>
+    <p style="margin:0;color:var(--c-sub);font-size:clamp(0.85rem,1.1vw,0.975rem);line-height:2.2;letter-spacing:0.06em;">髪と向き合う時間が、<br>毎日を少し心地よくする時間になるように。</p>
+  </div>
+</section>
+<section id="concept" data-screen-label="CONCEPT" style="padding-block:clamp(5rem,9vw,10rem);">
+  <div data-rv="concept" style="width:min(100% - clamp(32px,7vw,128px),1200px);margin-inline:auto;opacity:{{ rv.concept.op }};transform:{{ rv.concept.tf }};transition:opacity .9s ease-out,transform .9s ease-out;">
+    <div style="margin-bottom:clamp(2.5rem,5vw,4.5rem);">
+      <p style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(2.1rem,4.2vw,3.4rem);line-height:1;letter-spacing:0.06em;color:var(--c-green);">CONCEPT</p>
+      <h2 style="margin:18px 0 0;font-family:'Noto Serif JP',serif;font-weight:500;font-size:clamp(1.3rem,2.4vw,1.95rem);line-height:1.9;letter-spacing:0.05em;">日常に馴染む、<br>洗練されたヘアデザインを。</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:{{ conceptCols }};gap:clamp(2.5rem,6vw,6rem);align-items:center;">
+      <div style="overflow:hidden;">
+        <img src="assets/hero-02-salon.jpg" alt="自然光が入るNIVÉRA AOYAMAのセット面と鏡" width="1448" height="1086" loading="lazy" style="display:block;width:100%;aspect-ratio:4/5;object-fit:cover;">
+      </div>
+      <div>
+        <p style="margin:0 0 26px;font-size:clamp(0.9rem,1.2vw,1.02rem);line-height:2.3;color:var(--c-text);">NIVÉRA AOYAMAは、流行をそのまま当てはめるのではなく、一人ひとりの髪質、骨格、雰囲気、生活習慣に合わせて、その人らしい美しさを整えるヘアサロンです。</p>
+        <p style="margin:0 0 26px;font-size:clamp(0.9rem,1.2vw,1.02rem);line-height:2.3;color:var(--c-text);">サロンを出た瞬間だけ美しいスタイルではなく、自宅でも無理なく再現でき、時間が経っても自然に馴染むデザインを大切にしています。</p>
+        <p style="margin:0 0 34px;font-size:clamp(0.9rem,1.2vw,1.02rem);line-height:2.3;color:var(--c-text);">落ち着いた空間と丁寧な対話を通じて、髪だけではなく、気持ちまで整う時間をご提供します。</p>
+        <p style="margin:0;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:0.32em;color:var(--c-sage);">QUIET, NATURAL, TIMELESS.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="features" data-screen-label="FEATURES / 選ばれる理由" style="padding-block:clamp(5rem,9vw,10rem);background:var(--c-white);">
+  <div data-rv="features" style="width:min(100% - clamp(32px,7vw,128px),1200px);margin-inline:auto;opacity:{{ rv.features.op }};transform:{{ rv.features.tf }};transition:opacity .9s ease-out,transform .9s ease-out;">
+    <div style="margin-bottom:clamp(2.5rem,5vw,4.5rem);">
+      <p style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(2.1rem,4.2vw,3.4rem);line-height:1;letter-spacing:0.06em;color:var(--c-green);">OUR APPROACH</p>
+      <h2 style="margin:18px 0 0;font-family:'Noto Serif JP',serif;font-weight:500;font-size:clamp(1.3rem,2.4vw,1.95rem);line-height:1.9;letter-spacing:0.05em;">NIVÉRAが大切にしていること</h2>
+      <p style="margin:16px 0 0;color:var(--c-sub);font-size:clamp(0.875rem,1.1vw,0.975rem);line-height:2;">髪型だけではなく、毎日の過ごし方まで考えたご提案を大切にしています。</p>
+    </div>
+    <div style="display:grid;grid-template-columns:{{ cols3 }};gap:clamp(2.5rem,4vw,3rem) clamp(1.5rem,3vw,2.25rem);">
+      <div>
+        <div style="overflow:hidden;margin-bottom:22px;"><img src="assets/feature-01-counseling.jpg" alt="鏡越しに髪の状態を確認しながら会話するカウンセリング風景" width="1122" height="1402" loading="lazy" style="display:block;width:100%;aspect-ratio:4/5;object-fit:cover;"></div>
+        <p style="margin:0 0 10px;font-family:'Cormorant Garamond',serif;font-size:1.35rem;letter-spacing:0.22em;color:var(--c-beige);">01</p>
+        <h3 style="margin:0 0 14px;font-family:'Noto Serif JP',serif;font-weight:500;font-size:1.1rem;line-height:1.95;letter-spacing:0.04em;">言葉にならない希望まで整理する<br>カウンセリング</h3>
+        <p style="margin:0;color:var(--c-sub);font-size:0.9rem;line-height:2.15;">髪型の希望だけでなく、髪質、骨格、過去の施術履歴、普段のスタイリング時間まで丁寧に確認します。「どうしたいか分からない」という状態でも、会話と写真を通して、理想の方向性を一緒に整理します。</p>
+      </div>
+      <div>
+        <div style="overflow:hidden;margin-bottom:22px;"><img src="assets/feature-02-cut.jpg" alt="ボブスタイルの毛先を整えるカット施術の手元" width="1536" height="1024" loading="lazy" style="display:block;width:100%;aspect-ratio:4/5;object-fit:cover;"></div>
+        <p style="margin:0 0 10px;font-family:'Cormorant Garamond',serif;font-size:1.35rem;letter-spacing:0.22em;color:var(--c-beige);">02</p>
+        <h3 style="margin:0 0 14px;font-family:'Noto Serif JP',serif;font-weight:500;font-size:1.1rem;line-height:1.95;letter-spacing:0.04em;">自宅でも扱いやすい、<br>再現性の高いデザイン</h3>
+        <p style="margin:0;color:var(--c-sub);font-size:0.9rem;line-height:2.15;">サロンで仕上げた瞬間だけではなく、自宅で乾かしたときにも自然にまとまることを重視します。髪の生え方、毛量、クセを確認し、毎日の手入れに無理が生じないスタイルを設計します。</p>
+      </div>
+      <div>
+        <div style="overflow:hidden;margin-bottom:22px;"><img src="assets/feature-03-shampoo.jpg" alt="間仕切りのある静かなシャンプースペース" width="1448" height="1086" loading="lazy" style="display:block;width:100%;aspect-ratio:4/5;object-fit:cover;"></div>
+        <p style="margin:0 0 10px;font-family:'Cormorant Garamond',serif;font-size:1.35rem;letter-spacing:0.22em;color:var(--c-beige);">03</p>
+        <h3 style="margin:0 0 14px;font-family:'Noto Serif JP',serif;font-weight:500;font-size:1.1rem;line-height:1.95;letter-spacing:0.04em;">髪と気持ちを整える、<br>静かなサロン空間</h3>
+        <p style="margin:0;color:var(--c-sub);font-size:0.9rem;line-height:2.15;">自然光、木、石、柔らかなファブリックを取り入れた、落ち着きのある空間です。会話の量や過ごし方にも配慮し、必要以上に緊張せず、自分の時間として過ごせる環境を整えています。</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="style" data-screen-label="STYLE / WORKS" style="padding-block:clamp(5rem,9vw,10rem);background:var(--c-ivory);">
+  <div data-rv="style" style="width:min(100% - clamp(32px,7vw,128px),1200px);margin-inline:auto;opacity:{{ rv.style.op }};transform:{{ rv.style.tf }};transition:opacity .9s ease-out,transform .9s ease-out;">
+    <div style="margin-bottom:clamp(2.5rem,5vw,4.5rem);">
+      <p style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(2.1rem,4.2vw,3.4rem);line-height:1;letter-spacing:0.06em;color:var(--c-green);">STYLE</p>
+      <h2 style="margin:18px 0 0;font-family:'Noto Serif JP',serif;font-weight:500;font-size:clamp(1.3rem,2.4vw,1.95rem);line-height:1.9;letter-spacing:0.05em;">あなたらしさを引き出す<br>ヘアデザイン</h2>
+      <p style="margin:16px 0 0;color:var(--c-sub);font-size:clamp(0.875rem,1.1vw,0.975rem);line-height:2;">トレンドだけではなく、髪質や日常に自然と馴染むスタイルをご提案します。</p>
+    </div>
+    <div style="display:grid;grid-template-columns:{{ styleCols }};gap:clamp(2rem,4vw,2.75rem) {{ styleGap }};">
+      <sc-for list="{{ styleList }}" as="s" hint-placeholder-count="0">
+        <div>
+          <div style="overflow:hidden;margin-bottom:16px;"><img src="{{ s.img }}" alt="{{ s.alt }}" width="1122" height="1402" loading="lazy" style="display:block;width:100%;aspect-ratio:4/5;object-fit:cover;"></div>
+          <h3 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(1.1rem,1.6vw,1.35rem);letter-spacing:0.08em;line-height:1.3;">{{ s.name }}</h3>
+          <p style="margin:6px 0 0;font-family:'Inter',sans-serif;font-size:10px;letter-spacing:0.22em;color:var(--c-sage);">{{ s.staff }}</p>
+          <p style="margin:10px 0 0;font-size:12px;line-height:1.9;color:var(--c-sub);">{{ s.spec }}</p>
+          <p style="margin:8px 0 0;font-size:12.5px;line-height:2;color:var(--c-text);">{{ s.desc }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+<section id="menu" data-screen-label="MENU" style="padding-block:clamp(5rem,9vw,10rem);">
+  <div data-rv="menu" style="width:min(100% - clamp(32px,7vw,128px),1200px);margin-inline:auto;opacity:{{ rv.menu.op }};transform:{{ rv.menu.tf }};transition:opacity .9s ease-out,transform .9s ease-out;">
+    <div style="margin-bottom:clamp(2.5rem,5vw,4.5rem);">
+      <p style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(2.1rem,4.2vw,3.4rem);line-height:1;letter-spacing:0.06em;color:var(--c-green);">MENU</p>
+      <h2 style="margin:18px 0 0;font-family:'Noto Serif JP',serif;font-weight:500;font-size:clamp(1.3rem,2.4vw,1.95rem);line-height:1.9;letter-spacing:0.05em;">髪の状態と理想に合わせたメニュー</h2>
+      <p style="margin:16px 0 0;color:var(--c-sub);font-size:clamp(0.875rem,1.1vw,0.975rem);line-height:2;">料金と所要時間は施術前にご案内し、内容をご確認いただいてから施術を開始します。</p>
+    </div>
+    <h3 style="margin:0 0 24px;font-family:'Noto Serif JP',serif;font-weight:500;font-size:1.1rem;letter-spacing:0.08em;">初回おすすめメニュー</h3>
+    <div style="display:grid;grid-template-columns:{{ cols3 }};gap:clamp(1.25rem,2.5vw,1.75rem);margin-bottom:clamp(4rem,7vw,6rem);">
+      <sc-for list="{{ recList }}" as="r" hint-placeholder-count="3">
+        <div style="display:flex;flex-direction:column;background:var(--c-ivory);border:1px solid var(--c-border);padding:clamp(24px,3.5vw,36px);">
+          <p style="margin:0 0 8px;font-family:'Inter',sans-serif;font-size:10.5px;letter-spacing:0.26em;color:var(--c-green);">{{ r.en }}</p>
+          <h4 style="margin:0 0 18px;font-family:'Noto Serif JP',serif;font-weight:500;font-size:1.05rem;line-height:1.8;letter-spacing:0.03em;">{{ r.jp }}</h4>
+          <p style="margin:0;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;"><span style="font-family:'Cormorant Garamond',serif;font-size:2.1rem;line-height:1;color:var(--c-text);">{{ r.price }}</span><span style="font-size:12px;color:var(--c-sub);">{{ r.regular }}</span></p>
+          <p style="margin:8px 0 16px;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:0.14em;color:var(--c-sage);">{{ r.time }}</p>
+          <p style="margin:0 0 14px;font-size:12.5px;line-height:2;color:var(--c-text);">{{ r.target }}</p>
+          <p style="margin:0 0 14px;font-size:11.5px;line-height:1.95;color:var(--c-sub);">{{ r.contents }}</p>
+          <p style="margin:0 0 18px;font-size:11px;line-height:1.8;color:var(--c-sub);">{{ r.note }}</p>
+          <button type="button" onClick="{{ openModal }}" style="margin-top:auto;display:inline-flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:50px;background:var(--c-green);color:#FFFFFF;border:1px solid var(--c-green);font-size:13px;letter-spacing:0.1em;cursor:pointer;transition:filter .3s ease;box-sizing:border-box;" style-hover="filter:brightness(0.88);">このメニューで予約する<span aria-hidden="true">→</span></button>
+        </div>
+      </sc-for>
+    </div>
+    <h3 style="margin:0 0 8px;font-family:'Noto Serif JP',serif;font-weight:500;font-size:1.1rem;letter-spacing:0.08em;">通常メニュー</h3>
+    <div style="max-width:900px;">
+      <sc-for list="{{ catList }}" as="c" hint-placeholder-count="6">
+        <div style="border-bottom:1px solid var(--c-border);">
+          <button type="button" id="{{ c.bid }}" onClick="{{ c.toggle }}" aria-expanded="{{ c.open }}" aria-controls="{{ c.pid }}" style="display:grid;grid-template-columns:minmax(0,1fr) 24px;gap:16px;align-items:center;width:100%;min-height:64px;background:none;border:none;cursor:pointer;text-align:left;padding:16px 4px;">
+            <span style="font-family:'Cormorant Garamond',serif;font-size:1.35rem;letter-spacing:0.18em;color:var(--c-text);">{{ c.cat }}</span>
+            <span aria-hidden="true" style="font-size:1.2rem;color:var(--c-sage);text-align:center;line-height:1;">{{ c.icon }}</span>
+          </button>
+          <div id="{{ c.pid }}" role="region" aria-labelledby="{{ c.bid }}" style="overflow:hidden;max-height:{{ c.maxH }};transition:max-height .5s ease;">
+            <div style="padding:2px 4px 26px;">
+              <sc-for list="{{ c.items }}" as="m">
+                <div style="display:grid;grid-template-columns:{{ menuRowCols }};gap:6px 14px;align-items:baseline;padding:10px 0;border-bottom:1px dashed var(--c-soft);">
+                  <span style="font-size:14px;line-height:1.8;">{{ m.name }}</span>
+                  <span style="font-family:'Inter',sans-serif;font-size:13.5px;text-align:right;white-space:nowrap;">{{ m.price }}</span>
+                  <span style="font-size:11.5px;color:var(--c-sub);white-space:nowrap;text-align:right;grid-column:{{ menuTimeCol }};">{{ m.time }}</span>
+                </div>
+              </sc-for>
+              <sc-for list="{{ c.notes }}" as="nt">
+                <p style="margin:12px 0 0;font-size:11.5px;line-height:1.9;color:var(--c-sub);">{{ nt }}</p>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+    <div style="text-align:center;margin-top:clamp(3rem,5vw,4rem);">
+      <p style="margin:0 0 20px;color:var(--c-sub);font-size:0.925rem;line-height:2.1;">メニューが決まっていない場合も、<br>カウンセリング後にご提案します。</p>
+      <button type="button" onClick="{{ openModal }}" style="display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:52px;padding:12px 36px;background:transparent;color:var(--c-green);border:1px solid var(--c-green);font-size:14px;letter-spacing:0.12em;cursor:pointer;transition:background .3s ease;" style-hover="background:#E9EDE7;">相談して予約する</button>
+    </div>
+  </div>
+</section>
+<section id="staff" data-screen-label="STAFF" style="padding-block:clamp(5rem,9vw,10rem);background:var(--c-white);">
+  <div data-rv="staff" style="width:min(100% - clamp(32px,7vw,128px),1200px);margin-inline:auto;opacity:{{ rv.staff.op }};transform:{{ rv.staff.tf }};transition:opacity .9s ease-out,transform .9s ease-out;">
+    <div style="margin-bottom:clamp(2.5rem,5vw,4.5rem);">
+      <p style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(2.1rem,4.2vw,3.4rem);line-height:1;letter-spacing:0.06em;color:var(--c-green);">STYLIST</p>
+      <h2 style="margin:18px 0 0;font-family:'Noto Serif JP',serif;font-weight:500;font-size:clamp(1.3rem,2.4vw,1.95rem);line-height:1.9;letter-spacing:0.05em;">一人ひとりに向き合う<br>スタイリスト</h2>
+      <p style="margin:16px 0 0;color:var(--c-sub);font-size:clamp(0.875rem,1.1vw,0.975rem);line-height:2;">得意な技術や接客スタイルから、ご希望に合う担当者をお選びいただけます。</p>
+    </div>
+    <div style="display:grid;grid-template-columns:{{ cols3 }};gap:clamp(3rem,5vw,3.5rem) clamp(1.5rem,3vw,2.25rem);">
+      <sc-for list="{{ staffList }}" as="p" hint-placeholder-count="0">
+        <div style="display:flex;flex-direction:column;">
+          <div style="overflow:hidden;margin-bottom:20px;"><img src="{{ p.img }}" alt="{{ p.alt }}" width="1086" height="1448" loading="lazy" style="display:block;width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center 20%;"></div>
+          <h3 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:1.4rem;letter-spacing:0.12em;line-height:1.2;">{{ p.en }}</h3>
+          <p style="margin:8px 0 0;font-size:14px;letter-spacing:0.08em;">{{ p.jp }}</p>
+          <p style="margin:6px 0 0;font-family:'Inter',sans-serif;font-size:10.5px;letter-spacing:0.2em;color:var(--c-sage);">{{ p.role }}｜{{ p.years }}</p>
+          <p style="margin:14px 0 0;font-size:12px;line-height:1.9;color:var(--c-sub);">{{ p.skills }}</p>
+          <p style="margin:14px 0 0;font-size:12.5px;line-height:2.1;color:var(--c-text);">{{ p.profile }}</p>
+          <p style="margin:14px 0 18px;font-family:'Inter',sans-serif;font-size:11.5px;letter-spacing:0.12em;color:var(--c-sub);">{{ p.price }}</p>
+          <div style="margin-top:auto;display:flex;flex-direction:column;gap:10px;">
+            <button type="button" onClick="{{ openModal }}" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:50px;background:var(--c-green);color:#FFFFFF;border:1px solid var(--c-green);font-size:13px;letter-spacing:0.08em;cursor:pointer;transition:filter .3s ease;box-sizing:border-box;" style-hover="filter:brightness(0.88);">{{ p.cta }}<span aria-hidden="true">→</span></button>
+            <button type="button" onClick="{{ openModal }}" aria-label="{{ p.igLabel }}" style="display:inline-flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:44px;background:none;border:1px solid var(--c-border);color:var(--c-sub);font-family:'Inter',sans-serif;font-size:11px;letter-spacing:0.2em;cursor:pointer;transition:background .3s ease;box-sizing:border-box;" style-hover="background:var(--c-ivory);">INSTAGRAM</button>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+<section id="voice" data-screen-label="VOICE / 口コミ" style="padding-block:clamp(5rem,9vw,10rem);background:var(--c-ivory);">
+  <div data-rv="voice" style="width:min(100% - clamp(32px,7vw,128px),1200px);margin-inline:auto;opacity:{{ rv.voice.op }};transform:{{ rv.voice.tf }};transition:opacity .9s ease-out,transform .9s ease-out;">
+    <div style="margin-bottom:clamp(2.5rem,5vw,4rem);">
+      <p style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(2.1rem,4.2vw,3.4rem);line-height:1;letter-spacing:0.06em;color:var(--c-green);">VOICE</p>
+      <h2 style="margin:18px 0 0;font-family:'Noto Serif JP',serif;font-weight:500;font-size:clamp(1.3rem,2.4vw,1.95rem);line-height:1.9;letter-spacing:0.05em;">お客様からいただいた言葉</h2>
+      <p style="margin:14px 0 0;color:var(--c-sub);font-size:11.5px;letter-spacing:0.06em;">※以下は架空店舗を想定したサンプル表示です。</p>
+    </div>
+    <div style="display:grid;grid-template-columns:{{ cols3 }};gap:clamp(1rem,2vw,1.5rem);">
+      <sc-for list="{{ voiceList }}" as="v" hint-placeholder-count="5">
+        <div style="background:var(--c-white);border:1px solid var(--c-border);padding:clamp(22px,3vw,30px);">
+          <p style="margin:0;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:0.18em;color:var(--c-green);">{{ v.attr }}</p>
+          <p style="margin:6px 0 14px;font-size:11.5px;color:var(--c-sub);letter-spacing:0.04em;">{{ v.menu }}</p>
+          <p style="margin:0;font-size:13px;line-height:2.15;color:var(--c-text);">{{ v.text }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+<section id="firstvisit" data-screen-label="FIRST VISIT" style="padding-block:clamp(5rem,9vw,10rem);">
+  <div data-rv="first" style="width:min(100% - clamp(32px,7vw,128px),1200px);margin-inline:auto;opacity:{{ rv.first.op }};transform:{{ rv.first.tf }};transition:opacity .9s ease-out,transform .9s ease-out;">
+    <div style="margin-bottom:clamp(2.5rem,5vw,4.5rem);">
+      <p style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(2.1rem,4.2vw,3.4rem);line-height:1;letter-spacing:0.06em;color:var(--c-green);">FIRST VISIT</p>
+      <h2 style="margin:18px 0 0;font-family:'Noto Serif JP',serif;font-weight:500;font-size:clamp(1.3rem,2.4vw,1.95rem);line-height:1.9;letter-spacing:0.05em;">初めてご来店いただく方へ</h2>
+      <p style="margin:16px 0 0;color:var(--c-sub);font-size:clamp(0.875rem,1.1vw,0.975rem);line-height:2;">施術前に内容・料金・所要時間をご説明し、ご確認いただいてから施術を開始します。</p>
+    </div>
+    <div style="display:grid;grid-template-columns:{{ stepCols }};gap:clamp(2.25rem,4vw,3.25rem) clamp(1.5rem,3vw,2.5rem);">
+      <sc-for list="{{ stepList }}" as="st" hint-placeholder-count="6">
+        <div style="border-left:{{ stepBorder }};padding-left:{{ stepPad }};position:relative;">
+          <p style="margin:0 0 10px;font-family:'Cormorant Garamond',serif;font-size:1.6rem;line-height:1;letter-spacing:0.14em;color:var(--c-beige);">{{ st.n }}</p>
+          <h3 style="margin:0 0 12px;font-family:'Noto Serif JP',serif;font-weight:500;font-size:1.05rem;letter-spacing:0.06em;">{{ st.t }}</h3>
+          <p style="margin:0;font-size:12.5px;line-height:2.1;color:var(--c-sub);">{{ st.b }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+<section id="space" data-screen-label="SALON SPACE" style="padding-block:clamp(5rem,9vw,10rem);background:var(--c-white);">
+  <div data-rv="space" style="width:min(100% - clamp(32px,7vw,128px),1200px);margin-inline:auto;opacity:{{ rv.space.op }};transform:{{ rv.space.tf }};transition:opacity .9s ease-out,transform .9s ease-out;">
+    <div style="margin-bottom:clamp(2.5rem,5vw,4.5rem);">
+      <p style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(2.1rem,4.2vw,3.4rem);line-height:1;letter-spacing:0.06em;color:var(--c-green);">SALON SPACE</p>
+      <h2 style="margin:18px 0 0;font-family:'Noto Serif JP',serif;font-weight:500;font-size:clamp(1.3rem,2.4vw,1.95rem);line-height:1.9;letter-spacing:0.05em;">静かに自分と向き合える空間</h2>
+      <p style="margin:16px 0 0;color:var(--c-sub);font-size:clamp(0.875rem,1.1vw,0.975rem);line-height:2;max-width:640px;">自然光と柔らかな素材を取り入れた、落ち着きのある店内です。施術中も周囲を気にしすぎず、自分の時間として過ごせるよう、席の間隔と照明の明るさにも配慮しています。</p>
+    </div>
+    <div style="display:grid;grid-template-columns:{{ spaceCols }};grid-template-areas:{{ spaceAreas }};grid-auto-rows:{{ spaceRows }};gap:clamp(10px,1.5vw,14px);">
+      <div style="grid-area:a;overflow:hidden;"><img src="assets/space-reception.jpg" alt="受付カウンターと店内全景" width="1448" height="1086" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover;"></div>
+      <div style="grid-area:b;overflow:hidden;"><img src="assets/feature-03-shampoo.jpg" alt="シャンプー台と半個室スペース" width="1448" height="1086" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover;"></div>
+      <div style="grid-area:c;overflow:hidden;"><img src="assets/space-lounge.jpg" alt="自然光が入る待合スペース" width="1122" height="1402" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover;"></div>
+      <div style="grid-area:d;overflow:hidden;"><img src="assets/detail-material.jpg" alt="木と塗り壁の素材ディテール" width="1448" height="1086" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover;"></div>
+      <div style="grid-area:e;overflow:hidden;"><img src="assets/hero-01-exterior.jpg" alt="ギャラリーが入る建物2階の店舗外観" width="1536" height="1024" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover;"></div>
+    </div>
+    <div style="margin-top:clamp(2rem,4vw,3rem);">
+      <p style="margin:0 0 12px;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:0.24em;color:var(--c-sage);">5 SEATS ／ 2 SHAMPOO UNITS ／ SEMI-PRIVATE SEAT ／ WI-FI ／ POWER OUTLET ／ DRINK SERVICE ／ CLOAKROOM</p>
+      <p style="margin:0;font-size:12.5px;line-height:2.1;color:var(--c-sub);">半個室席、Wi-Fi、一部電源、ドリンクサービスをご用意しています。お子様同伴の場合は、事前にご相談ください。</p>
+    </div>
+  </div>
+</section>
+<section id="instagram" data-screen-label="Instagram" style="padding-block:clamp(5rem,9vw,10rem);background:var(--c-ivory);">
+  <div data-rv="ig" style="width:min(100% - clamp(32px,7vw,128px),1200px);margin-inline:auto;opacity:{{ rv.ig.op }};transform:{{ rv.ig.tf }};transition:opacity .9s ease-out,transform .9s ease-out;">
+    <div style="margin-bottom:clamp(2.5rem,5vw,4rem);">
+      <p style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(2.1rem,4.2vw,3.4rem);line-height:1;letter-spacing:0.06em;color:var(--c-green);">Instagram</p>
+      <p style="margin:16px 0 0;color:var(--c-sub);font-size:clamp(0.875rem,1.1vw,0.975rem);line-height:2;">スタイル、店内の様子、日々のお知らせを更新しています。</p>
+      <p style="margin:8px 0 0;font-family:'Inter',sans-serif;font-size:11.5px;letter-spacing:0.16em;color:var(--c-sage);">@nivera_aoyama_demo</p>
+    </div>
+    <div style="display:grid;grid-template-columns:{{ igCols }};gap:clamp(10px,1.5vw,14px);">
+      <sc-for list="{{ igList }}" as="g" hint-placeholder-count="0">
+        <button type="button" onClick="{{ openModal }}" aria-label="{{ g.label }}" style="display:block;padding:0;border:none;background:none;cursor:pointer;overflow:hidden;transition:opacity .3s ease;" style-hover="opacity:0.82;">
+          <img src="{{ g.img }}" alt="{{ g.alt }}" width="1000" height="1000" loading="lazy" style="display:block;width:100%;aspect-ratio:1/1;object-fit:cover;">
+        </button>
+      </sc-for>
+    </div>
+    <div style="text-align:center;margin-top:clamp(2rem,4vw,3rem);">
+      <button type="button" onClick="{{ openModal }}" style="display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:52px;padding:12px 36px;background:transparent;color:var(--c-green);border:1px solid var(--c-green);font-size:14px;letter-spacing:0.12em;cursor:pointer;transition:background .3s ease;" style-hover="background:#EDEAE2;">Instagramを見る<span aria-hidden="true">→</span></button>
+    </div>
+  </div>
+</section>
+<section id="faq" data-screen-label="FAQ" style="padding-block:clamp(5rem,9vw,10rem);">
+  <div data-rv="faq" style="width:min(100% - clamp(32px,7vw,128px),1200px);margin-inline:auto;opacity:{{ rv.faq.op }};transform:{{ rv.faq.tf }};transition:opacity .9s ease-out,transform .9s ease-out;">
+    <div style="margin-bottom:clamp(2.5rem,5vw,4rem);">
+      <p style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(2.1rem,4.2vw,3.4rem);line-height:1;letter-spacing:0.06em;color:var(--c-green);">FAQ</p>
+      <h2 style="margin:18px 0 0;font-family:'Noto Serif JP',serif;font-weight:500;font-size:clamp(1.3rem,2.4vw,1.95rem);line-height:1.9;letter-spacing:0.05em;">よくあるご質問</h2>
+    </div>
+    <div style="max-width:900px;border-top:1px solid var(--c-border);">
+      <sc-for list="{{ faqList }}" as="f" hint-placeholder-count="12">
+        <div style="border-bottom:1px solid var(--c-border);">
+          <button type="button" id="{{ f.bid }}" onClick="{{ f.toggle }}" aria-expanded="{{ f.open }}" aria-controls="{{ f.pid }}" style="display:grid;grid-template-columns:minmax(0,1fr) 24px;gap:16px;align-items:center;width:100%;min-height:64px;background:none;border:none;cursor:pointer;text-align:left;padding:18px 4px;">
+            <span style="font-family:'Noto Serif JP',serif;font-size:15px;line-height:1.9;letter-spacing:0.04em;color:var(--c-text);">{{ f.q }}</span>
+            <span aria-hidden="true" style="font-size:1.15rem;color:var(--c-sage);text-align:center;line-height:1;">{{ f.icon }}</span>
+          </button>
+          <div id="{{ f.pid }}" role="region" aria-labelledby="{{ f.bid }}" style="overflow:hidden;max-height:{{ f.maxH }};transition:max-height .45s ease;">
+            <p style="margin:0;padding:0 32px 24px 4px;font-size:13.5px;line-height:2.15;color:var(--c-sub);">{{ f.a }}</p>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+<section id="access" data-screen-label="SHOP INFORMATION / ACCESS" style="padding-block:clamp(5rem,9vw,10rem);background:var(--c-white);">
+  <div data-rv="access" style="width:min(100% - clamp(32px,7vw,128px),1200px);margin-inline:auto;opacity:{{ rv.access.op }};transform:{{ rv.access.tf }};transition:opacity .9s ease-out,transform .9s ease-out;">
+    <div style="margin-bottom:clamp(2.5rem,5vw,4.5rem);">
+      <p style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(2.1rem,4.2vw,3.4rem);line-height:1;letter-spacing:0.06em;color:var(--c-green);">ACCESS</p>
+      <h2 style="margin:18px 0 0;font-family:'Noto Serif JP',serif;font-weight:500;font-size:clamp(1.3rem,2.4vw,1.95rem);line-height:1.9;letter-spacing:0.05em;">店舗情報・アクセス</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:{{ accessCols }};gap:clamp(2.5rem,5vw,4rem);align-items:start;">
+      <div>
+        <h3 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:1.5rem;letter-spacing:0.16em;">NIVÉRA AOYAMA</h3>
+        <p style="margin:6px 0 20px;font-size:12.5px;color:var(--c-sub);letter-spacing:0.1em;">ニヴェラ 青山</p>
+        <p style="margin:0 0 6px;font-size:14px;line-height:2.1;">〒107-0000<br>東京都港区北青山3-00-00<br>NIVÉRA TERRACE 2F</p>
+        <p style="margin:0 0 8px;font-size:13px;line-height:2;color:var(--c-text);">表参道駅 B2出口より徒歩4分</p>
+        <p style="margin:0 0 22px;font-size:11px;color:var(--c-sub);">※住所・店舗情報はサンプル用の架空設定です。</p>
+        <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:26px;">
+          <span style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:0.24em;color:var(--c-sage);">TEL</span>
+          <button type="button" onClick="{{ openModal }}" aria-label="電話番号 03-0000-2718（サンプルのため発信できません）" style="background:none;border:none;padding:0;cursor:pointer;font-family:'Cormorant Garamond',serif;font-size:1.4rem;letter-spacing:0.1em;color:var(--c-text);">03-0000-2718</button>
+        </div>
+        <p style="margin:0 0 10px;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:0.24em;color:var(--c-sage);">OPEN</p>
+        <div style="max-width:360px;margin-bottom:8px;">
+          <sc-for list="{{ hoursList }}" as="hr">
+            <div style="display:grid;grid-template-columns:130px 1fr;gap:8px;padding:5px 0;border-bottom:1px dashed var(--c-soft);">
+              <span style="font-family:'Inter',sans-serif;font-size:11.5px;letter-spacing:0.14em;color:var(--c-sub);">{{ hr.d }}</span>
+              <span style="font-size:13px;letter-spacing:0.04em;">{{ hr.t }}</span>
+            </div>
+          </sc-for>
+        </div>
+        <p style="margin:0 0 26px;font-size:11.5px;line-height:1.9;color:var(--c-sub);">最終受付時間は施術メニューによって異なります。定休日：毎週火曜日</p>
+        <p style="margin:0 0 10px;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:0.24em;color:var(--c-sage);">PAYMENT</p>
+        <p style="margin:0 0 22px;font-size:12.5px;line-height:2.1;color:var(--c-text);">現金 / Visa / Mastercard / JCB / American Express / 交通系電子マネー / PayPay / 楽天ペイ</p>
+        <p style="margin:0 0 22px;font-size:12.5px;line-height:2.1;color:var(--c-sub);">席数：5席　スタッフ：3名<br>専用駐車場はありません。近隣のコインパーキングをご利用ください。</p>
+        <p style="margin:0 0 28px;font-size:13px;line-height:2.15;color:var(--c-text);">表参道駅B2出口を出て青山通りを直進し、2つ目の角を右折してください。1階にギャラリーが入る建物の2階です。エレベーターをご利用いただけます。</p>
+        <button type="button" onClick="{{ openModal }}" style="display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:52px;padding:12px 36px;background:var(--c-green);color:#FFFFFF;border:1px solid var(--c-green);font-size:14px;letter-spacing:0.12em;cursor:pointer;transition:filter .3s ease;" style-hover="filter:brightness(0.88);">WEBで予約する<span aria-hidden="true">→</span></button>
+      </div>
+      <div>
+        <div role="img" aria-label="架空の位置図。青山通り沿い、表参道駅B2出口から徒歩4分の位置にNIVÉRA AOYAMAがあります。" style="position:relative;aspect-ratio:4/3;background:var(--c-soft);border:1px solid var(--c-border);overflow:hidden;">
+          <div aria-hidden="true" style="position:absolute;top:0;bottom:0;left:24%;width:7%;background:#E2DED6;"></div>
+          <div aria-hidden="true" style="position:absolute;left:0;right:0;top:44%;height:11%;background:#DDD8CE;"></div>
+          <div aria-hidden="true" style="position:absolute;top:0;bottom:0;left:62%;width:4%;background:#E2DED6;"></div>
+          <div aria-hidden="true" style="position:absolute;left:0;right:0;top:76%;height:3.5%;background:#E4E0D8;"></div>
+          <span aria-hidden="true" style="position:absolute;left:4%;top:38%;font-family:'Inter',sans-serif;font-size:10px;letter-spacing:0.22em;color:var(--c-sub);">AOYAMA-DORI</span>
+          <span aria-hidden="true" style="position:absolute;left:8%;top:47.5%;display:inline-flex;align-items:center;gap:6px;background:var(--c-text);color:#FFFFFF;font-size:10px;letter-spacing:0.1em;padding:4px 10px;">表参道駅 B2</span>
+          <span aria-hidden="true" style="position:absolute;left:66.5%;top:23%;display:flex;flex-direction:column;align-items:flex-start;gap:6px;">
+            <span style="width:14px;height:14px;border-radius:50%;background:var(--c-green);border:3px solid #FFFFFF;box-shadow:0 0 0 1px var(--c-border);"></span>
+            <span style="background:#FFFFFF;border:1px solid var(--c-border);padding:6px 10px;display:flex;flex-direction:column;gap:2px;">
+              <span style="font-family:'Cormorant Garamond',serif;font-size:12.5px;letter-spacing:0.14em;color:var(--c-text);">NIVÉRA AOYAMA</span>
+              <span style="font-size:9.5px;color:var(--c-sub);letter-spacing:0.08em;">NIVÉRA TERRACE 2F</span>
+            </span>
+          </span>
+          <span style="position:absolute;right:3%;bottom:3%;font-size:10px;color:var(--c-sub);background:rgba(255,255,255,0.85);padding:3px 8px;">※架空の位置図です（実在の地図ではありません）</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section data-screen-label="FINAL RESERVATION CTA" style="background:var(--c-green);color:#FFFFFF;min-height:{{ ctaMinH }};display:flex;align-items:center;padding-block:clamp(5rem,9vw,8rem);">
+  <div data-rv="cta" style="width:min(100% - 48px,720px);margin-inline:auto;text-align:center;opacity:{{ rv.cta.op }};transform:{{ rv.cta.tf }};transition:opacity .9s ease-out,transform .9s ease-out;">
+    <p style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(2rem,4vw,3.2rem);line-height:1;letter-spacing:0.1em;color:rgba(255,255,255,0.95);">RESERVATION</p>
+    <h2 style="margin:26px 0 0;font-family:'Noto Serif JP',serif;font-weight:500;font-size:clamp(1.25rem,2.6vw,1.9rem);line-height:2.1;letter-spacing:0.06em;">あなたに自然と馴染むスタイルを、<br>一緒に見つけませんか。</h2>
+    <p style="margin:18px 0 34px;font-size:clamp(0.85rem,1.1vw,0.95rem);line-height:2.1;opacity:0.85;">メニューが決まっていない場合も、<br>カウンセリング後にご提案します。</p>
+    <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center;">
+      <button type="button" onClick="{{ openModal }}" style="display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:56px;padding:12px 38px;background:#FFFFFF;color:var(--c-green);border:1px solid #FFFFFF;font-size:14px;letter-spacing:0.12em;cursor:pointer;transition:filter .3s ease;" style-hover="filter:brightness(0.93);">WEBで予約する<span aria-hidden="true">→</span></button>
+      <button type="button" onClick="{{ openModal }}" style="display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:56px;padding:12px 38px;background:transparent;color:#FFFFFF;border:1px solid rgba(255,255,255,0.65);font-size:14px;letter-spacing:0.12em;cursor:pointer;transition:background .3s ease;" style-hover="background:rgba(255,255,255,0.12);">LINEで相談する</button>
+    </div>
+    <p style="margin:26px 0 0;font-family:'Inter',sans-serif;font-size:10.5px;letter-spacing:0.3em;opacity:0.7;">完全予約優先制</p>
+  </div>
+</section>
+<section id="contact" data-screen-label="CONTACT / RECRUIT" style="padding-block:clamp(5rem,9vw,10rem);">
+  <div data-rv="contact" style="width:min(100% - clamp(32px,7vw,128px),1200px);margin-inline:auto;opacity:{{ rv.contact.op }};transform:{{ rv.contact.tf }};transition:opacity .9s ease-out,transform .9s ease-out;">
+    <div style="display:grid;grid-template-columns:{{ contactCols }};gap:clamp(3rem,5vw,4rem);align-items:start;">
+      <div style="background:var(--c-ivory);border:1px solid var(--c-border);padding:clamp(26px,4vw,44px);">
+        <p style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(1.8rem,3vw,2.4rem);line-height:1;letter-spacing:0.08em;color:var(--c-green);">CONTACT</p>
+        <h2 style="margin:14px 0 0;font-family:'Noto Serif JP',serif;font-weight:500;font-size:1.2rem;letter-spacing:0.06em;">お問い合わせ</h2>
+        <p style="margin:16px 0 22px;font-size:13px;line-height:2.15;color:var(--c-sub);">メニューや施術についてのご質問は、LINEまたはお問い合わせフォームからご連絡ください。営業時間内に順次確認し、2営業日以内を目安に返信します。</p>
+        <button type="button" onClick="{{ openModal }}" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:10px 26px;background:transparent;color:var(--c-green);border:1px solid var(--c-green);font-size:13px;letter-spacing:0.1em;cursor:pointer;margin-bottom:28px;transition:background .3s ease;" style-hover="background:#EDEAE2;">LINEで問い合わせる</button>
+        <form onSubmit="{{ submitForm }}">
+          <div style="margin-bottom:16px;">
+            <label for="ct-name" style="display:block;font-size:12px;color:var(--c-sub);margin-bottom:6px;letter-spacing:0.06em;">お名前</label>
+            <input id="ct-name" name="name" type="text" required="required" autoComplete="name" style="width:100%;box-sizing:border-box;min-height:48px;border:1px solid var(--c-border);background:#FFFFFF;padding:10px 14px;font-size:15px;">
+          </div>
+          <div style="margin-bottom:16px;">
+            <label for="ct-kana" style="display:block;font-size:12px;color:var(--c-sub);margin-bottom:6px;letter-spacing:0.06em;">フリガナ</label>
+            <input id="ct-kana" name="kana" type="text" style="width:100%;box-sizing:border-box;min-height:48px;border:1px solid var(--c-border);background:#FFFFFF;padding:10px 14px;font-size:15px;">
+          </div>
+          <div style="margin-bottom:16px;">
+            <label for="ct-mail" style="display:block;font-size:12px;color:var(--c-sub);margin-bottom:6px;letter-spacing:0.06em;">メールアドレス</label>
+            <input id="ct-mail" name="email" type="email" required="required" autoComplete="email" style="width:100%;box-sizing:border-box;min-height:48px;border:1px solid var(--c-border);background:#FFFFFF;padding:10px 14px;font-size:15px;">
+          </div>
+          <div style="margin-bottom:16px;">
+            <label for="ct-tel" style="display:block;font-size:12px;color:var(--c-sub);margin-bottom:6px;letter-spacing:0.06em;">電話番号</label>
+            <input id="ct-tel" name="tel" type="tel" autoComplete="tel" style="width:100%;box-sizing:border-box;min-height:48px;border:1px solid var(--c-border);background:#FFFFFF;padding:10px 14px;font-size:15px;">
+          </div>
+          <div style="margin-bottom:16px;">
+            <label for="ct-type" style="display:block;font-size:12px;color:var(--c-sub);margin-bottom:6px;letter-spacing:0.06em;">お問い合わせ種別</label>
+            <select id="ct-type" name="type" style="width:100%;box-sizing:border-box;min-height:48px;border:1px solid var(--c-border);background:#FFFFFF;padding:10px 12px;font-size:15px;color:var(--c-text);">
+              <option>メニューについて</option>
+              <option>施術について</option>
+              <option>予約について</option>
+              <option>採用について</option>
+              <option>その他</option>
+            </select>
+          </div>
+          <div style="margin-bottom:16px;">
+            <label for="ct-staff" style="display:block;font-size:12px;color:var(--c-sub);margin-bottom:6px;letter-spacing:0.06em;">希望スタッフ</label>
+            <select id="ct-staff" name="staff" style="width:100%;box-sizing:border-box;min-height:48px;border:1px solid var(--c-border);background:#FFFFFF;padding:10px 12px;font-size:15px;color:var(--c-text);">
+              <option>指定なし</option>
+              <option>如月 葵</option>
+              <option>神谷 蓮</option>
+              <option>白川 澪</option>
+            </select>
+          </div>
+          <div style="margin-bottom:18px;">
+            <label for="ct-body" style="display:block;font-size:12px;color:var(--c-sub);margin-bottom:6px;letter-spacing:0.06em;">お問い合わせ内容</label>
+            <textarea id="ct-body" name="body" required="required" style="width:100%;box-sizing:border-box;min-height:130px;border:1px solid var(--c-border);background:#FFFFFF;padding:12px 14px;font-size:15px;resize:vertical;"></textarea>
+          </div>
+          <label style="display:flex;align-items:center;gap:10px;font-size:12.5px;color:var(--c-text);margin-bottom:22px;cursor:pointer;">
+            <input type="checkbox" required="required" style="width:18px;height:18px;accent-color:var(--c-green);">個人情報の取り扱いに同意する
+          </label>
+          <button type="submit" style="display:inline-flex;align-items:center;justify-content:center;gap:12px;width:100%;min-height:54px;background:var(--c-green);color:#FFFFFF;border:1px solid var(--c-green);font-size:14px;letter-spacing:0.12em;cursor:pointer;transition:filter .3s ease;box-sizing:border-box;" style-hover="filter:brightness(0.88);">入力内容を送信する<span aria-hidden="true">→</span></button>
+        </form>
+      </div>
+      <div id="recruit">
+        <p style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(1.8rem,3vw,2.4rem);line-height:1;letter-spacing:0.08em;color:var(--c-green);">RECRUIT</p>
+        <h2 style="margin:14px 0 0;font-family:'Noto Serif JP',serif;font-weight:500;font-size:1.2rem;letter-spacing:0.06em;">採用情報</h2>
+        <p style="margin:16px 0 26px;font-size:13px;line-height:2.2;color:var(--c-text);">技術だけではなく、目の前のお客様と丁寧に向き合える人を募集しています。NIVÉRAは、短時間で多くのお客様を担当することよりも、一人ひとりの希望を理解し、長く通っていただける関係をつくることを大切にしています。</p>
+        <p style="margin:0 0 8px;font-family:'Inter',sans-serif;font-size:10.5px;letter-spacing:0.24em;color:var(--c-sage);">POSITION</p>
+        <p style="margin:0 0 20px;font-size:13.5px;line-height:2;">Stylist / Assistant</p>
+        <p style="margin:0 0 8px;font-family:'Inter',sans-serif;font-size:10.5px;letter-spacing:0.24em;color:var(--c-sage);">EMPLOYMENT</p>
+        <p style="margin:0 0 20px;font-size:13.5px;line-height:2;">正社員 / 業務委託 / パート・アルバイト</p>
+        <p style="margin:0 0 8px;font-family:'Inter',sans-serif;font-size:10.5px;letter-spacing:0.24em;color:var(--c-sage);">REQUIREMENTS</p>
+        <p style="margin:0 0 28px;font-size:13px;line-height:2.2;color:var(--c-text);">美容師免許を保有していること<br>店舗の接客方針に共感できること<br>チーム内で情報共有ができること</p>
+        <button type="button" onClick="{{ openModal }}" style="display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:52px;padding:12px 32px;background:transparent;color:var(--c-green);border:1px solid var(--c-green);font-size:13.5px;letter-spacing:0.1em;cursor:pointer;transition:background .3s ease;" style-hover="background:#E9EDE7;">採用について問い合わせる</button>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<footer style="background:#242522;color:#FFFFFF;padding-block:clamp(4rem,7vw,6rem) 0;">
+  <div style="width:min(100% - clamp(32px,7vw,128px),1200px);margin-inline:auto;">
+    <div style="display:grid;grid-template-columns:{{ footCols }};gap:clamp(2.5rem,5vw,4rem);align-items:start;">
+      <div style="display:flex;flex-direction:column;align-items:flex-start;gap:14px;">
+        <img src="assets/logo-symbol.png" alt="" width="1024" height="1024" style="width:34px;height:34px;object-fit:contain;filter:brightness(0) invert(1);">
+        <span style="display:flex;flex-direction:column;gap:8px;">
+          <span style="font-family:'Cormorant Garamond',serif;font-size:26px;letter-spacing:0.4em;">NIVÉRA</span>
+          <span style="font-family:'Inter',sans-serif;font-size:9px;letter-spacing:0.34em;opacity:0.7;">HAIR SALON / AOYAMA</span>
+        </span>
+      </div>
+      <div>
+        <p style="margin:0 0 6px;font-size:13px;line-height:2.15;opacity:0.9;">〒107-0000<br>東京都港区北青山3-00-00<br>NIVÉRA TERRACE 2F</p>
+        <p style="margin:0 0 10px;font-size:12.5px;line-height:2;opacity:0.75;">表参道駅 B2出口より徒歩4分</p>
+        <button type="button" onClick="{{ openModal }}" aria-label="電話番号 03-0000-2718（サンプルのため発信できません）" style="background:none;border:none;padding:0;cursor:pointer;font-family:'Cormorant Garamond',serif;font-size:1.2rem;letter-spacing:0.1em;color:#FFFFFF;">03-0000-2718</button>
+      </div>
+      <div>
+        <nav aria-label="フッターナビゲーション" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 20px;margin-bottom:20px;">
+          <sc-for list="{{ footNavList }}" as="n" hint-placeholder-count="10">
+            <a href="{{ n.href }}" style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:0.18em;color:rgba(255,255,255,0.85);text-decoration:none;" style-hover="color:#FFFFFF;">{{ n.label }}</a>
+          </sc-for>
+        </nav>
+        <button type="button" onClick="{{ openModal }}" style="display:inline-flex;align-items:center;gap:8px;background:none;border:1px solid rgba(255,255,255,0.4);color:rgba(255,255,255,0.9);font-family:'Inter',sans-serif;font-size:10.5px;letter-spacing:0.22em;min-height:44px;padding:0 20px;cursor:pointer;transition:background .3s ease;" style-hover="background:rgba(255,255,255,0.1);">INSTAGRAM</button>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,0.14);margin-top:clamp(2.5rem,5vw,4rem);padding:26px 0 calc(26px + {{ footPadB }});">
+      <p style="margin:0 0 12px;font-size:12.5px;line-height:2.1;color:rgba(255,255,255,0.75);">本サイトは、FOLIOが制作した架空のヘアサロンを想定したサンプルHPです。実在する店舗・人物・サービスとは関係ありません。</p>
+      <p style="margin:0;font-family:'Inter',sans-serif;font-size:10px;letter-spacing:0.22em;color:rgba(255,255,255,0.5);">COPYRIGHT © NIVÉRA AOYAMA ALL RIGHTS RESERVED.</p>
+    </div>
+  </div>
+</footer>
+<sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+  <nav aria-label="予約メニュー" style="position:fixed;left:0;right:0;bottom:0;z-index:65;display:flex;background:#FFFFFF;border-top:1px solid var(--c-border);padding-bottom:env(safe-area-inset-bottom);">
+    <button type="button" onClick="{{ openModal }}" style="flex:1 1 25%;min-height:64px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;background:#FFFFFF;border:none;border-right:1px solid var(--c-border);cursor:pointer;">
+      <span style="font-family:'Inter',sans-serif;font-size:9px;letter-spacing:0.2em;color:var(--c-sage);">LINE</span>
+      <span style="font-size:12px;letter-spacing:0.06em;color:var(--c-text);">LINE相談</span>
+    </button>
+    <button type="button" onClick="{{ openModal }}" style="flex:1 1 25%;min-height:64px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;background:#FFFFFF;border:none;border-right:1px solid var(--c-border);cursor:pointer;">
+      <span style="font-family:'Inter',sans-serif;font-size:9px;letter-spacing:0.2em;color:var(--c-sage);">TEL</span>
+      <span style="font-size:12px;letter-spacing:0.06em;color:var(--c-text);">電話</span>
+    </button>
+    <button type="button" onClick="{{ openModal }}" style="flex:1 1 50%;min-height:64px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;background:var(--c-green);border:none;cursor:pointer;">
+      <span style="font-family:'Inter',sans-serif;font-size:9px;letter-spacing:0.2em;color:rgba(255,255,255,0.75);">RESERVE</span>
+      <span style="font-size:13.5px;letter-spacing:0.1em;color:#FFFFFF;font-weight:500;">WEB予約</span>
+    </button>
+  </nav>
+</sc-if>
+<sc-if value="{{ modalOpen }}" hint-placeholder-val="{{ false }}">
+  <div onClick="{{ overlayClick }}" style="position:fixed;inset:0;z-index:80;background:rgba(36,37,34,0.55);display:flex;align-items:center;justify-content:center;padding:20px;">
+    <div id="sample-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" data-screen-label="SAMPLE INFORMATION MODAL" style="background:#FFFFFF;width:min(calc(100vw - 40px),560px);max-height:calc(100dvh - 40px);overflow:auto;padding:clamp(30px,5vw,50px);text-align:center;box-sizing:border-box;">
+      <img src="assets/logo-symbol.png" alt="" width="1024" height="1024" style="width:30px;height:30px;object-fit:contain;margin-bottom:16px;">
+      <h2 id="modal-title" style="margin:0 0 18px;font-family:'Noto Serif JP',serif;font-weight:500;font-size:1.25rem;letter-spacing:0.08em;">サンプルHPについて</h2>
+      <p style="margin:0 0 28px;font-size:14px;line-height:2.3;color:var(--c-sub);">こちらは、架空のヘアサロンを使用した<br>FOLIOの制作サンプルHPです。<br>実在する店舗ではないため、<br>予約・電話・問い合わせはできません。</p>
+      <button type="button" id="modal-close" onClick="{{ closeModal }}" style="display:inline-flex;align-items:center;justify-content:center;min-height:52px;min-width:220px;padding:12px 34px;background:var(--c-green);color:#FFFFFF;border:1px solid var(--c-green);font-size:14px;letter-spacing:0.12em;cursor:pointer;transition:filter .3s ease;" style-hover="filter:brightness(0.88);">サイトに戻る</button>
+    </div>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;heroIntervalSec&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:6,&quot;min&quot;:5,&quot;max&quot;:7,&quot;step&quot;:0.5,&quot;unit&quot;:&quot;s&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;ファーストビュー&quot;},&quot;accentGreen&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#47564C&quot;,&quot;options&quot;:[&quot;#47564C&quot;,&quot;#3E4B42&quot;,&quot;#526457&quot;,&quot;#45584F&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;ブランド&quot;},&quot;revealAnimations&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;アニメーション&quot;}}">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { w: 1280, scrolled: false, menuOpen: false, modalOpen: false, heroIdx: 0, faqOpen: {}, catOpen: { 0: true }, revealed: {}, reduced: false };
+    this.D = {
+      heros: [
+        { src: 'assets/hero-01-exterior.jpg', alt: '青山の通りに面したNIVÉRA AOYAMAの店舗外観', w: 1536, h: 1024, pos: 'center' },
+        { src: 'assets/hero-02-salon.jpg', alt: '自然光が入るNIVÉRA AOYAMAのセット面', w: 1448, h: 1086, pos: 'center' },
+        { src: 'assets/style-03-quiet-short.jpg', alt: 'ナチュラルなボブスタイルの女性モデル', w: 1122, h: 1402, pos: 'center 25%' },
+        { src: 'assets/feature-02-cut.jpg', alt: 'ボブスタイルを整えるカット施術の手元', w: 1536, h: 1024, pos: 'center' },
+        { src: 'assets/detail-material.jpg', alt: '鏡と木、塗り壁の素材ディテール', w: 1448, h: 1086, pos: 'center' }
+      ],
+      nav: [
+        { label: 'HOME', href: '#home' }, { label: 'CONCEPT', href: '#concept' }, { label: 'STYLE', href: '#style' }, { label: 'MENU', href: '#menu' }, { label: 'STYLIST', href: '#staff' }, { label: 'INSTAGRAM', href: '#instagram' }, { label: 'ACCESS', href: '#access' }
+      ],
+      styles: [
+        { img: 'assets/style-01-compact-bob.jpg', name: 'Soft Compact Bob', staff: 'AOI KISARAGI', spec: 'カット＋ケアカラー ／ ¥19,250 ／ 約150分', desc: '乾かすだけで丸みが出るように調整した、コンパクトなボブスタイル。', alt: 'オリーブベージュのコンパクトなボブスタイルの後ろ姿' },
+        { img: 'assets/style-02-face-layer.jpg', name: 'Natural Face Layer', staff: 'REN KAMIYA', spec: 'カット＋ワンカラー＋トリートメント ／ ¥19,800 ／ 約150分', desc: '顔周りに柔らかな動きをつけ、結んだときにも自然に見えるミディアムスタイル。', alt: '顔周りに柔らかなレイヤーを入れたミディアムスタイル' },
+        { img: 'assets/style-03-quiet-short.jpg', name: 'Quiet Short', staff: 'AOI KISARAGI', spec: 'ディレクターカット＋トリートメント ／ ¥12,100 ／ 約90分', desc: '骨格と生え方に合わせて、横から見たシルエットまで整えたショートスタイル。', alt: '横から見たシルエットを整えたショートスタイル' },
+        { img: 'assets/style-04-glossy-long.jpg', name: 'Glossy Long', staff: 'MIO SHIRAKAWA', spec: 'カット＋髪質ケアカラー＋集中補修 ／ ¥22,000 ／ 約180分', desc: '暗さの中に透明感を残し、艶とまとまりを重視したロングスタイル。', alt: '艶とまとまりのあるダークブラウンのロングスタイル' },
+        { img: 'assets/style-05-airy-medium.jpg', name: 'Airy Medium', staff: 'REN KAMIYA', spec: 'カット＋ケアカラー ／ ¥18,150 ／ 約150分', desc: '表面と顔周りに軽さを加えた、仕事にも休日にも馴染むミディアムスタイル。', alt: '表面と顔周りに軽さを加えたミディアムスタイル' },
+        { img: 'assets/style-06-mens.jpg', name: "Minimal Men's Hair", staff: 'REN KAMIYA', spec: 'カット＋ショートスパ ／ ¥11,000 ／ 約80分', desc: 'スタイリング剤を多く使わなくてもまとまる、自然なメンズショート。', alt: '自然にまとまるナチュラルなメンズショート' }
+      ],
+      recs: [
+        { en: 'DESIGN CUT & CARE', jp: '似合わせカット＋ケアトリートメント', price: '¥9,900', regular: '通常 ¥11,000', time: '約90分', target: '自分に似合う髪型が分からない方、毛先の乾燥やまとまりが気になる方へ。', contents: 'カウンセリング / シャンプー / 似合わせカット / 3ステップトリートメント / スタイリング / ホームケア説明', note: '' },
+        { en: 'TRANSPARENT COLOR', jp: '似合わせカット＋透明感カラー＋ケア', price: '¥16,500', regular: '通常 ¥18,700', time: '約150分', target: '赤みや黄みを抑えたい方、派手すぎない透明感が欲しい方へ。', contents: 'カウンセリング / カット / ワンカラー / カラーケア / 3ステップトリートメント / スタイリング / ホームケア説明', note: '※ブリーチを使用する施術は含まれません。' },
+        { en: 'NIVÉRA HAIR CARE', jp: '似合わせカット＋髪質ケアカラー＋集中補修', price: '¥22,000', regular: '通常 ¥24,200', time: '約180分', target: 'カラーを楽しみながら、乾燥や広がり、手触りも整えたい方へ。', contents: '詳細カウンセリング / カット / 髪質ケアカラー / 5ステップ集中補修トリートメント / 頭皮保護 / スタイリング / ホームケア説明', note: '※クセを完全に伸ばす縮毛矯正ではありません。' }
+      ],
+      cats: [
+        { cat: 'CUT', items: [{ name: 'スタイリストカット', price: '¥7,700', time: '約60分' }, { name: 'ディレクターカット', price: '¥8,800', time: '約60分' }, { name: '前髪・顔周りカット', price: '¥2,200', time: '約20分' }, { name: '学生カット', price: '¥6,600', time: '約60分' }], notes: ['※学生カットは大学生・専門学生まで。'] },
+        { cat: 'COLOR', items: [{ name: 'ワンカラー', price: '¥8,800', time: '約90分' }, { name: 'リタッチカラー', price: '¥7,700', time: '約75分' }, { name: 'ケアカラー', price: '¥10,450', time: '約90分' }, { name: 'ブリーチなしダブルカラー', price: '¥14,300', time: '約150分' }, { name: 'ハイライト', price: '¥6,600〜', time: '追加約60分' }], notes: ['※カット料金は別途。', '※鎖骨下はロング料金¥1,100、胸下は¥2,200を加算します。'] },
+        { cat: 'PERM', items: [{ name: 'ナチュラルパーマ', price: '¥9,900', time: '約120分' }, { name: 'ポイントパーマ', price: '¥4,400〜', time: '約60分' }, { name: 'デジタルパーマ', price: '¥14,300', time: '約150分' }], notes: ['※カット料金は別途。'] },
+        { cat: 'STRAIGHT', items: [{ name: 'ナチュラルストレート', price: '¥14,300', time: '約150分' }, { name: '縮毛矯正', price: '¥19,800', time: '約180分' }, { name: '前髪ストレート', price: '¥6,600', time: '約75分' }, { name: '顔周りストレート', price: '¥8,800', time: '約90分' }], notes: ['※カット料金は別途。'] },
+        { cat: 'TREATMENT', items: [{ name: '3ステップトリートメント', price: '¥3,300', time: '約20分' }, { name: '5ステップ集中補修', price: '¥5,500', time: '約30分' }, { name: 'NIVÉRAプレミアムケア', price: '¥8,800', time: '約45分' }], notes: ['※トリートメントのみの場合、シャンプー・ブロー料金¥2,200を加算します。'] },
+        { cat: 'HEAD SPA', items: [{ name: 'ショートスパ', price: '¥3,300', time: '約20分' }, { name: 'リラックススパ', price: '¥5,500', time: '約40分' }, { name: '頭皮ケアスパ', price: '¥7,700', time: '約60分' }], notes: ['※スパのみの場合、シャンプー・ブロー料金¥2,200を加算します。'] }
+      ],
+      staff: [
+        { img: 'assets/staff-01-aoi.jpg', en: 'AOI KISARAGI', jp: '如月 葵', role: 'Owner / Hair Director', years: '13 years', skills: 'ナチュラルボブ / ショート / 顔周りデザイン / 骨格補正カット', profile: '髪型だけを考えるのではなく、服装や仕事、普段のスタイリング時間まで含めて、その人に自然と馴染むデザインをご提案します。大きく変えたい場合も、少しだけ整えたい場合も、現在の悩みから一緒に整理します。', price: '指名カット ¥8,800', cta: '如月 葵を指名して予約する', igLabel: '如月 葵のInstagram（サンプル表示）', alt: 'Owner / Hair Director 如月 葵のポートレート' },
+        { img: 'assets/staff-02-ren.jpg', en: 'REN KAMIYA', jp: '神谷 蓮', role: 'Stylist / Color Specialist', years: '8 years', skills: '透明感カラー / オリーブベージュ / グレージュ / ミディアムレイヤー', profile: '髪の状態と肌の色を確認し、派手すぎず、室内でも自然光でもきれいに見えるカラーをご提案します。色落ちの過程や次回来店まで考えたカラー設計を大切にしています。', price: '指名カット ¥7,700', cta: '神谷 蓮を指名して予約する', igLabel: '神谷 蓮のInstagram（サンプル表示）', alt: 'Stylist / Color Specialist 神谷 蓮のポートレート' },
+        { img: 'assets/staff-03-mio.jpg', en: 'MIO SHIRAKAWA', jp: '白川 澪', role: 'Stylist / Hair Care Specialist', years: '6 years', skills: '髪質ケアカラー / 集中補修 / ヘッドスパ / ミニボブ', profile: '髪のダメージ履歴や自宅でのケア方法を確認し、今の髪に必要な施術を無理なくご提案します。カラーを楽しみながら、手触りやまとまりも整えたい方はご相談ください。', price: '指名カット ¥7,700', cta: '白川 澪を指名して予約する', igLabel: '白川 澪のInstagram（サンプル表示）', alt: 'Stylist / Hair Care Specialist 白川 澪のポートレート' }
+      ],
+      voices: [
+        { attr: '30代女性｜初回', menu: 'カット＋透明感カラー', text: '自分に似合う髪型が分からない状態で伺いましたが、普段の服装やセットに使える時間まで聞いていただきました。説明も分かりやすく、翌朝も自分で簡単に整えられました。' },
+        { attr: '20代女性｜3回', menu: 'カット＋髪質ケアカラー', text: 'カラーを繰り返して乾燥が気になっていましたが、必要なケアと不要な施術をはっきり説明してもらえたので安心できました。色落ちも自然で気に入っています。' },
+        { attr: '40代女性｜5回以上', menu: 'ディレクターカット', text: '派手に変えずに雰囲気を変えたいという曖昧な希望を、丁寧に整理していただきました。伸びてきても形が崩れにくく、毎朝の準備が楽になりました。' },
+        { attr: '30代男性｜2回', menu: 'カット＋ヘッドスパ', text: '店内が落ち着いていて、必要以上に会話を求められない点も過ごしやすかったです。仕事でも違和感のない自然なスタイルにしてもらえました。' },
+        { attr: '30代女性｜初回', menu: 'カット＋トリートメント', text: '料金と施術内容を最初に説明してもらえたので、不安なくお願いできました。ホームケアも難しい方法ではなく、続けられる内容を教えてもらえました。' }
+      ],
+      steps: [
+        { n: '01', t: '予約', b: 'WEB予約またはLINEから、希望日時とメニューを選択します。メニューが決まっていない場合は、「相談して決めたい」をお選びください。' },
+        { n: '02', t: '来店・受付', b: '予約時間の5分前を目安にご来店ください。上着や手荷物をお預かりし、初回カウンセリングシートをご記入いただきます。' },
+        { n: '03', t: 'カウンセリング', b: '希望、悩み、施術履歴、普段のスタイリング方法を確認します。施術内容、料金、所要時間をご説明し、ご了承後に施術を開始します。' },
+        { n: '04', t: '施術', b: '髪の状態を確認しながら施術します。必要に応じて、途中経過や仕上がりの方向性を共有します。' },
+        { n: '05', t: '仕上げ・説明', b: '自宅で再現しやすい乾かし方やスタイリング方法をご説明します。商品やケア方法は、ご希望がある場合のみご案内します。' },
+        { n: '06', t: '会計・次回来店案内', b: '会計後、スタイルを維持しやすい次回来店時期の目安をお伝えします。次回予約は任意です。' }
+      ],
+      igs: [
+        { img: 'assets/ig-long-layer.jpg', alt: '顔周りレイヤーのヘアスタイル' },
+        { img: 'assets/hero-02-salon.jpg', alt: '自然光が入るセット面' },
+        { img: 'assets/style-01-compact-bob.jpg', alt: 'オリーブベージュのボブ' },
+        { img: 'assets/ig-treatment.jpg', alt: 'トリートメント施術中の手元' },
+        { img: 'assets/ig-team.jpg', alt: 'スタッフ3名の集合写真' },
+        { img: 'assets/detail-material.jpg', alt: '受付付近の素材ディテール' }
+      ],
+      faqs: [
+        { q: '初めてでも予約できますか？', a: 'はい。初めての方もWEB予約またはLINEからご予約いただけます。' },
+        { q: 'メニューが決まっていなくても予約できますか？', a: 'はい。「相談して決めたい」を選択してください。カウンセリング後に、施術内容、料金、所要時間をご案内します。' },
+        { q: '指名はできますか？', a: 'はい。予約画面から希望するスタイリストを選択できます。指名料はなく、カット料金は担当者によって異なります。' },
+        { q: '当日予約はできますか？', a: '予約枠に空きがある場合は可能です。WEB予約で空き状況をご確認ください。' },
+        { q: '予約時間に遅れる場合はどうすればよいですか？', a: '分かった時点で店舗へご連絡ください。遅れる時間によっては、メニュー変更または予約日時の変更をお願いする場合があります。' },
+        { q: 'キャンセル料はかかりますか？', a: '前日までのキャンセルは無料です。当日キャンセルと無断キャンセルは、予約メニュー料金の50%をお願いする場合があります。' },
+        { q: '支払い方法は何がありますか？', a: '現金、主要クレジットカード、交通系電子マネー、QRコード決済をご利用いただけます。' },
+        { q: '子どもを連れて行けますか？', a: '席の状況を確認する必要があるため、予約前にLINEまたは電話でご相談ください。' },
+        { q: '駐車場はありますか？', a: '専用駐車場はありません。近隣のコインパーキングをご利用ください。' },
+        { q: '商品だけ購入できますか？', a: '在庫がある場合は購入できます。来店前に電話またはLINEでお問い合わせください。' },
+        { q: '会話をせず静かに過ごすことはできますか？', a: 'はい。カウンセリングに必要な確認以外は、静かに過ごしたい旨を予約時または来店時にお伝えください。' },
+        { q: 'ブリーチ施術はできますか？', a: '対応可能ですが、髪の状態や希望する色によって施術内容が異なります。予約前にLINEで現在の髪の写真をお送りください。' }
+      ],
+      hours: [
+        { d: 'MON', t: '10:00–19:00' }, { d: 'TUE', t: 'CLOSED' }, { d: 'WED', t: '11:00–20:00' }, { d: 'THU', t: '11:00–20:00' }, { d: 'FRI', t: '11:00–20:00' }, { d: 'SAT', t: '10:00–19:00' }, { d: 'SUN / HOLIDAY', t: '10:00–18:00' }
+      ],
+      footNav: [
+        { label: 'HOME', href: '#home' }, { label: 'CONCEPT', href: '#concept' }, { label: 'STYLE', href: '#style' }, { label: 'MENU', href: '#menu' }, { label: 'STYLIST', href: '#staff' }, { label: 'INSTAGRAM', href: '#instagram' }, { label: 'FAQ', href: '#faq' }, { label: 'ACCESS', href: '#access' }, { label: 'CONTACT', href: '#contact' }, { label: 'RECRUIT', href: '#recruit' }
+      ]
+    };
+  }
+  componentDidMount() {
+    this._onResize = () => { const w = window.innerWidth; if (w !== this.state.w) this.setState({ w: w }); };
+    this._onScroll = () => { const sc = window.scrollY > 50; if (sc !== this.state.scrolled) this.setState({ scrolled: sc }); };
+    window.addEventListener('resize', this._onResize);
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    this._onResize(); this._onScroll();
+    this._mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    this.setState({ reduced: this._mq.matches });
+    const iv = Math.max(5, Math.min(7, Number(this.props.heroIntervalSec) || 6)) * 1000;
+    this._hero = setInterval(() => { if (!document.hidden && !this._mq.matches) this.setState(s => ({ heroIdx: (s.heroIdx + 1) % this.D.heros.length })); }, iv);
+    this._onKey = (e) => {
+      if (e.key === 'Escape') { if (this.state.modalOpen) this.closeModal(); else if (this.state.menuOpen) this.closeMenu(); }
+      if (e.key === 'Tab' && this.state.modalOpen) {
+        const m = document.getElementById('sample-modal'); if (!m) return;
+        const f = m.querySelectorAll('button, a[href]'); if (!f.length) return;
+        const first = f[0], last = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
+    };
+    document.addEventListener('keydown', this._onKey);
+    this._io = new IntersectionObserver((es) => {
+      es.forEach(en => { if (en.isIntersecting) { const id = en.target.getAttribute('data-rv'); this.setState(s => ({ revealed: Object.assign({}, s.revealed, { [id]: true }) })); this._io.unobserve(en.target); } });
+    }, { threshold: 0.1 });
+    this._obsTimer = setInterval(() => { document.querySelectorAll('[data-rv]').forEach(el => this._io.observe(el)); }, 800);
+    setTimeout(() => { if (this._obsTimer) { clearInterval(this._obsTimer); this._obsTimer = null; } }, 4000);
+    document.querySelectorAll('[data-rv]').forEach(el => this._io.observe(el));
+    if (this.props.accentGreen) { this._acc = this.props.accentGreen; document.documentElement.style.setProperty('--c-green', this.props.accentGreen); }
+  }
+  componentDidUpdate() {
+    const acc = this.props.accentGreen;
+    if (acc && acc !== this._acc) { this._acc = acc; document.documentElement.style.setProperty('--c-green', acc); }
+  }
+  componentWillUnmount() {
+    clearInterval(this._hero); if (this._obsTimer) clearInterval(this._obsTimer);
+    window.removeEventListener('resize', this._onResize);
+    window.removeEventListener('scroll', this._onScroll);
+    document.removeEventListener('keydown', this._onKey);
+    if (this._io) this._io.disconnect();
+    document.body.style.overflow = '';
+  }
+  openModal = () => { this._lastFocus = document.activeElement; document.body.style.overflow = 'hidden'; this.setState({ modalOpen: true }); setTimeout(() => { const c = document.getElementById('modal-close'); if (c) c.focus(); }, 60); };
+  closeModal = () => { document.body.style.overflow = this.state.menuOpen ? 'hidden' : ''; this.setState({ modalOpen: false }); setTimeout(() => { if (this._lastFocus && this._lastFocus.focus) this._lastFocus.focus(); }, 60); };
+  toggleMenu = () => { const next = !this.state.menuOpen; document.body.style.overflow = next ? 'hidden' : ''; this.setState({ menuOpen: next }); };
+  closeMenu = () => { if (!this.state.modalOpen) document.body.style.overflow = ''; this.setState({ menuOpen: false }); };
+  menuReserve = () => { this._lastFocus = document.activeElement; document.body.style.overflow = 'hidden'; this.setState({ menuOpen: false, modalOpen: true }); setTimeout(() => { const c = document.getElementById('modal-close'); if (c) c.focus(); }, 60); };
+  overlayClick = (e) => { if (e.target === e.currentTarget) this.closeModal(); };
+  submitForm = (e) => { e.preventDefault(); this.setState({ modalOpen: true }); };
+  renderVals() {
+    const st = this.state, w = st.w;
+    const isM = w < 768, isT = w >= 768 && w < 1024, deskNav = w >= 1180, isXS = w < 380;
+    const noReveal = this.props.revealAnimations === false;
+    const reveal = (id) => (noReveal || st.reduced || st.revealed[id]) ? { op: 1, tf: 'translateY(0px)' } : { op: 0, tf: 'translateY(26px)' };
+    const rv = {};
+    ['brand', 'concept', 'features', 'style', 'menu', 'staff', 'voice', 'first', 'space', 'ig', 'faq', 'access', 'cta', 'contact'].forEach(k => { rv[k] = reveal(k); });
+    const scrolled = st.scrolled || st.menuOpen;
+    const cols3 = isM ? '1fr' : isT ? 'repeat(2, minmax(0,1fr))' : 'repeat(3, minmax(0,1fr))';
+    return {
+      isMobile: isM, deskNav: deskNav, showBurger: !deskNav, menuOpen: st.menuOpen, modalOpen: st.modalOpen,
+      showScrollHint: !isM,
+      hdrH: scrolled ? (isM ? '60px' : '74px') : (isM ? '68px' : '92px'),
+      hdrBg: scrolled ? 'rgba(244,241,234,0.92)' : 'transparent',
+      hdrBlur: scrolled ? 'blur(10px)' : 'none',
+      hdrBorder: scrolled ? '1px solid var(--c-border)' : '1px solid transparent',
+      hdrColor: scrolled ? 'var(--c-text)' : '#FFFFFF',
+      symFilter: scrolled ? 'none' : 'brightness(0) invert(1)',
+      hdrBtnBorder: scrolled ? 'var(--c-border)' : 'rgba(255,255,255,0.5)',
+      hdrCtaBg: scrolled ? 'var(--c-green)' : 'rgba(255,255,255,0.14)',
+      hdrCtaBorder: scrolled ? 'var(--c-green)' : 'rgba(255,255,255,0.6)',
+      navList: this.D.nav,
+      menuNavList: this.D.nav.concat([{ label: 'CONTACT', href: '#contact' }, { label: 'RECRUIT', href: '#recruit' }]),
+      footNavList: this.D.footNav,
+      heroMinH: isM ? '640px' : '720px',
+      heroJust: isM ? 'flex-end' : 'center',
+      heroPadB: isM ? 'calc(120px + env(safe-area-inset-bottom))' : '0px',
+      heroList: this.D.heros.map((h, i) => Object.assign({}, h, {
+        op: i === st.heroIdx ? 1 : 0,
+        tf: st.reduced ? 'none' : (i === st.heroIdx ? 'scale(1.06)' : 'scale(1)'),
+        load: i === 0 ? 'eager' : 'lazy'
+      })),
+      rv: rv,
+      conceptCols: isM ? '1fr' : isT ? '1fr 1fr' : '55fr 45fr',
+      cols3: cols3,
+      styleCols: isM ? 'repeat(2, minmax(0,1fr))' : isT ? 'repeat(2, minmax(0,1fr))' : 'repeat(3, minmax(0,1fr))',
+      styleGap: isM ? '12px' : '22px',
+      styleList: this.D.styles,
+      recList: this.D.recs,
+      catList: this.D.cats.map((c, i) => {
+        const open = !!st.catOpen[i];
+        return Object.assign({}, c, {
+          open: open, icon: open ? '−' : '＋', maxH: open ? '1200px' : '0px',
+          bid: 'cat-b' + i, pid: 'cat-p' + i,
+          toggle: () => this.setState(s => ({ catOpen: Object.assign({}, s.catOpen, { [i]: !s.catOpen[i] }) }))
+        });
+      }),
+      menuRowCols: isXS ? 'minmax(0,1fr) auto' : 'minmax(0,1fr) auto auto',
+      menuTimeCol: isXS ? '1 / -1' : 'auto',
+      staffList: this.D.staff,
+      voiceList: this.D.voices,
+      stepList: this.D.steps,
+      stepCols: isM ? '1fr' : isT ? 'repeat(2, minmax(0,1fr))' : 'repeat(3, minmax(0,1fr))',
+      stepBorder: isM ? '1px solid var(--c-border)' : 'none',
+      stepPad: isM ? '24px' : '0px',
+      spaceCols: isM ? 'repeat(2, minmax(0,1fr))' : 'repeat(3, minmax(0,1fr))',
+      spaceAreas: isM ? '"a a" "b c" "d e"' : '"a a b" "a a c" "d e e"',
+      spaceRows: isM ? 'minmax(130px, auto)' : 'minmax(180px, auto)',
+      igCols: isM ? 'repeat(2, minmax(0,1fr))' : 'repeat(3, minmax(0,1fr))',
+      igList: this.D.igs.map(g => Object.assign({}, g, { label: 'Instagram投稿：' + g.alt + '（サンプル表示）' })),
+      faqList: this.D.faqs.map((f, i) => {
+        const open = !!st.faqOpen[i];
+        return Object.assign({}, f, {
+          open: open, icon: open ? '−' : '＋', maxH: open ? '480px' : '0px',
+          bid: 'faq-b' + i, pid: 'faq-p' + i,
+          toggle: () => this.setState(s => ({ faqOpen: Object.assign({}, s.faqOpen, { [i]: !s.faqOpen[i] }) }))
+        });
+      }),
+      hoursList: this.D.hours,
+      accessCols: (isM || isT) ? '1fr' : 'minmax(0,45fr) minmax(0,55fr)',
+      ctaMinH: isM ? '520px' : '500px',
+      contactCols: (isM || isT) ? '1fr' : 'minmax(0,60fr) minmax(0,40fr)',
+      footCols: isM ? '1fr' : isT ? 'repeat(2, minmax(0,1fr))' : 'repeat(3, minmax(0,1fr))',
+      footPadB: isM ? 'calc(64px + env(safe-area-inset-bottom))' : '0px',
+      openModal: this.openModal, closeModal: this.closeModal, overlayClick: this.overlayClick,
+      toggleMenu: this.toggleMenu, closeMenu: this.closeMenu, menuReserve: this.menuReserve, submitForm: this.submitForm
+    };
+  }
+}
+</script>
+</body>
+</html>
